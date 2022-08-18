@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://arcetros.vercel.app/
+
+# Sitemaps
+Sitemap: https://arcetros.vercel.app/sitemap.xml
