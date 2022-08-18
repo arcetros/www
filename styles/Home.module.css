@@ -1,5 +1,9 @@
 .container {
-  padding: 0 2rem;
+  @apply py-2;
+
+  & .test {
+    @apply text-2xl;
+  }
 }
 
 .main {

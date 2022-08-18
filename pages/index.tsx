@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
 import React from 'react'
 
+import s from '../styles/Home.module.css'
+
 const Home: NextPage = () => {
   return (
-    <div className='flex h-screen items-center justify-center'>
-      <h1 className='text-4xl font-bold text-red-500'>Hello World</h1>
+    <div className={s.container}>
+      <h1 className={s.test}>Hello World</h1>
     </div>
   )
 }
