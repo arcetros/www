@@ -1,5 +1,5 @@
 .container {
-  @apply py-2;
+  @apply bg-test py-2;
 
   & .test {
     @apply text-2xl;
@@ -7,9 +7,9 @@
 }
 
 .main {
+  @apply bg-primary;
   min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+  padding: 12rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
