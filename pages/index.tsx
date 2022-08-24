@@ -2,6 +2,7 @@ import { ArrowNarrowRightIcon } from '@heroicons/react/solid'
 import { clsx } from 'clsx'
 import Link from 'next/link'
 import React from 'react'
+import { Clock } from 'react-feather'
 
 import Container from '@/src/components/UI/Container/Container'
 import { getAllProjects, ProjectMeta } from '@/src/services'
@@ -87,6 +88,33 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
             </ProjectItem>
           ))}
         </div>
+        <div className='relative mt-32 flex min-w-full items-center bg-gradient-to-l from-secondary to-yellow-200 bg-clip-text text-transparent'>
+          <h1 className='w-fit text-4xl font-bold uppercase'>Recent Activity</h1>
+        </div>
+        <section className='relative min-h-[calc(4.2rem*2)]'>
+          <div className='relative flex w-full flex-col '>
+            <div className='py-8'>
+              <span className='relative mb-8 inline-block '>2022</span>
+              <ul className='flex flex-col gap-[80px] pl-14'>
+                <li className='relative'>
+                  <div>
+                    {/* <div className='absolute -left-10 top-6 h-full w-[1px] bg-gray-200'></div> */}
+                    <Clock className='absolute left-[calc((40px)*-1-9px)] top-[7px]' size={20} />
+                  </div>
+                  <div className='mb-3 inline-flex rounded-md bg-[#8fe1511a] py-2 px-3'>
+                    <strong className='text-[0.8rem] text-[#8fe151]'>
+                      Created this portfolio site
+                    </strong>
+                  </div>
+                  <div className='mb-1 text-[0.8rem] leading-normal text-gray-300'>
+                    Aug 18, 2022
+                  </div>
+                  <h2 className='text-3xl'>arcetros.vercel.app</h2>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </Container>
     </div>
   )
