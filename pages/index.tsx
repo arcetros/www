@@ -87,30 +87,6 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
             </ProjectItem>
           ))}
         </div>
-        <div className='relative mt-32 min-w-full items-center'>
-          <h1 className='w-fit bg-gradient-to-l from-secondary to-yellow-200 bg-clip-text text-4xl font-bold uppercase text-transparent'>
-            Resources
-          </h1>
-        </div>
-        <div className='mt-8 lg:mt-16'>
-          <div className='mr-8'>
-            <h1 className='text-2xl text-yellow-300 lg:text-4xl'>Stack</h1>
-            <p className='mt-3 text-yellow-200'>
-              Other services or open source technologies that I use to build this site.
-            </p>
-          </div>
-          <ul className='mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4'>
-            <li>Typescript</li>
-            <li>next.js</li>
-            <li>clsx</li>
-            <li>glob</li>
-            <li>gray-matter</li>
-            <li>next-mdx-remote</li>
-            <li>next-sitemap</li>
-            <li>font-source</li>
-            <li>mdx-js</li>
-          </ul>
-        </div>
       </Container>
     </div>
   )
