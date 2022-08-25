@@ -1,0 +1,19 @@
+.root {
+  @apply relative min-h-[calc(4.2rem*2)];
+
+  & .wrapper {
+    @apply relative flex w-full flex-col;
+
+    & .seperator {
+      @apply py-8;
+
+      & span {
+        @apply relative mb-8 inline-block;
+      }
+
+      & ul {
+        @apply flex flex-col gap-[80px] pl-14;
+      }
+    }
+  }
+}
