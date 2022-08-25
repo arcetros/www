@@ -1,23 +1,17 @@
-import { ArrowNarrowRightIcon } from '@heroicons/react/solid'
 import { clsx } from 'clsx'
 import Link from 'next/link'
 import React from 'react'
-import { Clock } from 'react-feather'
 
 import { TimelineSeperator, TimelineWrapper } from '@/src/components/Common/Timeline'
 import Container from '@/src/components/UI/Container/Container'
 import Timeline from '@/src/components/UI/Timeline'
+import { getNewTimeline } from '@/src/Helper'
 import { getAllProjects, ProjectMeta } from '@/src/services'
 
-const YEARS = [
-  {
-    year: 2021,
-    timeline: [
-      { title: 'Do stuff', date: 'yurp' },
-      { title: 'Do stuff 2', date: 'dick' }
-    ]
-  },
-  { year: 2022, timeline: [{ title: 'Do stuff', date: 'yurp' }] }
+const DUMMY = [
+  { date: '2021-08-25T03:56:50+00:00', title: 'joko', meta: { stack: 'test', star: 2 } },
+  { date: '2021-12-25T03:56:50+00:00', title: 'eee' },
+  { date: '2022-08-25T03:56:50+00:00', title: 'bakekok' }
 ]
 
 export async function getStaticProps() {
@@ -40,7 +34,7 @@ const ProjectItem = ({
   id: number
 }) => {
   return (
-    <Link href={`/${slug}`}>
+    <Link href={`/${slug}`} key={key}>
       <div
         key={key}
         className={clsx(
@@ -55,6 +49,7 @@ const ProjectItem = ({
 }
 
 const Home = ({ projects }: { projects: ProjectMeta[] }) => {
+  const { timeline } = getNewTimeline(DUMMY, 'year')
   return (
     <div className='flex min-h-screen flex-col justify-center py-[calc(4.2rem*2)] px-4 xl:px-0'>
       <Container>
@@ -107,39 +102,17 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
         <div className='relative mt-32 flex min-w-full items-center bg-gradient-to-l from-secondary to-yellow-200 bg-clip-text text-transparent'>
           <h1 className='w-fit text-4xl font-bold uppercase'>Recent Activity</h1>
         </div>
-        <TimelineWrapper>
-          {YEARS.sort((a, b) => b.year - a.year).map((item, id) => (
-            <TimelineSeperator seperator={item.year} key={id}>
-              {item.timeline.map((t, id) => {
-                return (
-                  <li className='relative' key={id}>
-                    <div>
-                      {id + 1 !== item.timeline.length && (
-                        <div className='absolute -left-10 top-6 -bottom-[90px] w-[1px] bg-gray-400' />
-                      )}
-                      {/* if only 1 or last item it disabled */}
 
-                      <Clock
-                        className='absolute left-[calc((40px)*-1-9px)] top-[7px] text-gray-400'
-                        size={20}
-                      />
-                    </div>
-                    {/* color is set by categories */}
-                    <div className='mb-3 inline-flex rounded-md bg-[#8fe1511a] py-2 px-3'>
-                      <strong className='text-[0.8rem] text-[#8fe151]'>
-                        Created this portfolio site
-                      </strong>
-                    </div>
-                    {/* add stacks if available */}
-                    <div className='mb-1 text-[0.8rem] leading-normal text-gray-300'>
-                      Aug 18, 2022
-                    </div>
-                    <h2 className='text-3xl'>arcetros.vercel.app</h2>
-                  </li>
-                )
-              })}
-            </TimelineSeperator>
-          ))}
+        <TimelineWrapper>
+          {timeline
+            .sort((a, b) => parseInt(b.year) - parseInt(a.year))
+            .map((item, id) => (
+              <TimelineSeperator seperator={item.year} key={id}>
+                {item.timeline.map((t, id) => (
+                  <Timeline content={t} lastIndex={id + 1 !== item.timeline.length} key={id} />
+                ))}
+              </TimelineSeperator>
+            ))}
         </TimelineWrapper>
       </Container>
     </div>
