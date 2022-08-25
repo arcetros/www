@@ -8,7 +8,7 @@
       @apply py-8;
 
       & span {
-        @apply relative mb-8 inline-block;
+        @apply relative mb-8 inline-block text-xl font-bold;
       }
 
       & ul {

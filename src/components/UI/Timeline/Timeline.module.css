@@ -10,10 +10,10 @@
   @apply absolute -left-10 top-6 -bottom-[90px] w-[1px] bg-gray-400;
 }
 
-.work {
-  @apply bg-[#d051e11a] text-[#d051e1e9];
+.default {
+  @apply bg-[#494d7e82] text-[#787fcc];
 }
 
-.default {
-  @apply bg-[#5175e11a] text-[#5175e1];
+.work {
+  @apply bg-[#905d7474] text-[#d49cb7];
 }

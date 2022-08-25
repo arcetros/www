@@ -11,7 +11,7 @@ import type { MDXPost } from './types'
 const components = {
   h2: (props: any) => (
     <h2
-      className='mt-[1.5em] mb-[0.5em] text-2xl font-bold text-yellow-200 no-underline'
+      className='mt-[1.5em] mb-[0.5em] text-2xl font-bold text-primary-4 no-underline'
       {...props}
     />
   ),
@@ -21,7 +21,7 @@ const components = {
     </p>
   ),
   li: (props: any) => <li className={s.list}>{props.children}</li>,
-  a: (props: any) => <a className='text-yellow-200 hover:underline' {...props} />,
+  a: (props: any) => <a className='text-primary-4 hover:underline' {...props} />,
   ul: (props: any) => <ul className='relative' {...props} />
 }
 
@@ -31,17 +31,17 @@ export const Content = ({ project }: { project: MDXPost }) => {
       <Link href='/'>
         <span className='text-bold cursor-pointer font-mono hover:underline'>cd ..</span>
       </Link>
-      <h1 className='font-secondary mt-4 text-5xl text-yellow-200'>{project.meta.title}</h1>
+      <h1 className='font-secondary mt-4 text-5xl text-primary-4'>{project.meta.title}</h1>
       <p className='mt-8'>{project.meta.introduction}</p>
       <table className='mt-4 w-fit'>
         <tbody>
           <tr>
-            <th className='pr-4 text-left text-yellow-200'>stack:</th>
+            <th className='pr-4 text-left text-primary-4'>stack:</th>
             <td>{project.meta.stacks.join(', ')}</td>
           </tr>
 
           <tr>
-            <th className='pr-4 text-left text-yellow-200'>code:</th>
+            <th className='pr-4 text-left text-primary-4'>code:</th>
             <td>
               <Link href={project.meta.code} passHref>
                 <a target='_blank' className='underline'>
@@ -52,7 +52,7 @@ export const Content = ({ project }: { project: MDXPost }) => {
           </tr>
 
           <tr>
-            <th className='pr-4 text-left text-yellow-200'>live site:</th>
+            <th className='pr-4 text-left text-primary-4'>live site:</th>
             <td>
               <Link href={project.meta.live} passHref>
                 <a target='_blank' className='underline'>
