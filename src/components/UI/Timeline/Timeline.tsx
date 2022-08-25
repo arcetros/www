@@ -1,31 +1,39 @@
+import clsx from 'clsx'
 import React from 'react'
 import { Clock } from 'react-feather'
 
+import s from './Timeline.module.css'
 import { type TimelineContent } from './types'
 
 interface Timeline {
   lastIndex: boolean
+  variant: 'work' | 'default'
   content: TimelineContent
 }
 
-const Timeline = ({ lastIndex, content }: Timeline) => {
+const Timeline = ({ lastIndex, content, variant = 'default' }: Timeline) => {
+  console.log(content)
+  const rootBadgeClassName = clsx(s.badge, {
+    [s.work]: variant === 'work',
+    [s.default]: variant === 'default'
+  })
+
   return (
-    <li className='relative'>
+    <li className={s.root}>
       <div>
-        {lastIndex && (
-          <div className='absolute -left-10 top-6 -bottom-[90px] w-[1px] bg-gray-400' />
-        )}
+        {lastIndex && <div className={s.line} />}
         <Clock className='absolute left-[calc((40px)*-1-9px)] top-[7px] text-gray-400' size={20} />
       </div>
-      {/* color is set by categories */}
-      <div className='mb-3 inline-flex rounded-md bg-[#8fe1511a] py-2 px-3'>
-        <strong className='text-[0.8rem] text-[#8fe151]'>Created this portfolio site</strong>
+      <div className={rootBadgeClassName}>
+        <strong>Created this portfolio site</strong>
       </div>
       {/* add stacks if available */}
       <div className='mb-1 text-[0.8rem] leading-normal text-gray-300'>
         {new Date(content.date).toISOString()}
       </div>
-      <h2 className='text-3xl'>{content.title}</h2>
+      <h2 className='text-[2rem] leading-snug'>{content.title}</h2>
+      <h3 className='mb-4 text-[hsla(217,12%,64%,1)]'>{content?.meta?.subTitle}</h3>
+      <p>{content?.meta?.description}</p>
     </li>
   )
 }

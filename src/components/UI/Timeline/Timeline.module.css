@@ -1,0 +1,19 @@
+.root {
+  @apply relative;
+
+  & .badge {
+    @apply mb-3 inline-flex rounded-md py-2 px-3 text-[0.8rem];
+  }
+}
+
+.line {
+  @apply absolute -left-10 top-6 -bottom-[90px] w-[1px] bg-gray-400;
+}
+
+.work {
+  @apply bg-[#d051e11a] text-[#d051e1e9];
+}
+
+.default {
+  @apply bg-[#5175e11a] text-[#5175e1];
+}

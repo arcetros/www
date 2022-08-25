@@ -9,8 +9,20 @@ import { getNewTimeline } from '@/src/Helper'
 import { getAllProjects, ProjectMeta } from '@/src/services'
 
 const DUMMY = [
-  { date: '2021-08-25T03:56:50+00:00', title: 'joko', meta: { stack: 'test', star: 2 } },
+  {
+    date: '2021-08-25T03:56:50+00:00',
+    title: 'joko',
+    meta: {
+      stack: 'test',
+      star: 2,
+      variant: 'work',
+      subTitle: 'Lorem Ipsum',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur vitae rerum sequi velit dolores ab. Vel, explicabo maiores iure, sapiente quod iusto totam architecto laboriosam perspiciatis reprehenderit fugit? Quidem, facilis.'
+    }
+  },
   { date: '2021-12-25T03:56:50+00:00', title: 'eee' },
+  { date: '2019-08-25T03:56:50+00:00', title: 'bakekok' },
   { date: '2022-08-25T03:56:50+00:00', title: 'bakekok' }
 ]
 
@@ -108,9 +120,16 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
             .sort((a, b) => parseInt(b.year) - parseInt(a.year))
             .map((item, id) => (
               <TimelineSeperator seperator={item.year} key={id}>
-                {item.timeline.map((t, id) => (
-                  <Timeline content={t} lastIndex={id + 1 !== item.timeline.length} key={id} />
-                ))}
+                {item.timeline.map((t, id) => {
+                  return (
+                    <Timeline
+                      content={t}
+                      variant={t?.meta?.variant}
+                      lastIndex={id + 1 !== item.timeline.length}
+                      key={id}
+                    />
+                  )
+                })}
               </TimelineSeperator>
             ))}
         </TimelineWrapper>
