@@ -11,7 +11,7 @@ const TimelineSeperator = ({
 }) => {
   return (
     <div className={s.seperator}>
-      <span>{seperator}</span>
+      <span className={s.seperator__head}>{seperator}</span>
       <ul>{children}</ul>
     </div>
   )

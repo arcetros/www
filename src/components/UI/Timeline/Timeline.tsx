@@ -3,22 +3,26 @@ import dayjs from 'dayjs'
 import React from 'react'
 import { Clock } from 'react-feather'
 
+import { LanguageVariants, TitleVariants } from './_variants'
 import s from './Timeline.module.css'
 import { type TimelineContent } from './types'
 
 interface Timeline {
   lastIndex: boolean
-  variant: 'work' | 'default'
+  variant: 'work' | 'project' | 'default'
+  badgeTitle?: string | number
   content: TimelineContent
 }
 
-const Timeline = ({ lastIndex, content, variant = 'default' }: Timeline) => {
+const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle }: Timeline) => {
   const rootBadgeClassName = clsx(s.badge, {
     [s.work]: variant === 'work',
+    [s.project]: variant === 'project',
     [s.default]: variant === 'default'
   })
 
   const date = new Date(content.date)
+  const formatDate = (date) => dayjs(date).format('MMMM DD, YYYY')
 
   return (
     <li className={s.root}>
@@ -31,13 +35,29 @@ const Timeline = ({ lastIndex, content, variant = 'default' }: Timeline) => {
         />
       </div>
       <div className={rootBadgeClassName}>
-        <strong>Placeholder</strong>
+        <strong>{badgeTitle ? badgeTitle : TitleVariants[variant]}</strong>
       </div>
-      <div className='mb-1 text-[0.8rem] leading-normal text-gray-300'>
-        <time dateTime={date.toString()}>{dayjs(content.date).format('MMMM DD, YYYY')}</time>
+      <div className={s.badge_info}>
+        <time dateTime={date.toString()}>
+          {formatDate(content.date)} {content.endDate && `- ${formatDate(content.endDate)}`}
+        </time>
+        {content.meta.language && (
+          <>
+            {LanguageVariants[content.meta.language]}
+            <span className={s.language}>{content.meta.language}</span>
+          </>
+        )}
       </div>
-      <h2 className='text-[2rem] leading-snug'>{content.title}</h2>
-      <h3 className='mb-4 text-xl text-[hsla(217,12%,64%,1)]'>{content?.meta?.subTitle}</h3>
+      <h2 className={clsx(content?.meta?.link && 'cursor-pointer hover:underline')}>
+        {content.meta.link ? (
+          <a target='_blank' href={content.meta.link} rel='noreferrer'>
+            {content.title}
+          </a>
+        ) : (
+          content.title
+        )}
+      </h2>
+      <h3>{content?.meta?.subTitle}</h3>
       <p>{content?.meta?.description}</p>
     </li>
   )

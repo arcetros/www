@@ -4,6 +4,22 @@
   & .badge {
     @apply mb-3 inline-flex rounded-md py-2 px-3 text-[0.8rem];
   }
+
+  & .badge_info {
+    @apply mb-1 flex items-center text-[0.8rem] leading-normal text-gray-300;
+
+    & .language {
+      @apply text-[0.8rem];
+    }
+  }
+
+  & h2 {
+    @apply w-fit text-[2rem] leading-snug;
+  }
+
+  & h3 {
+    @apply mb-4 text-xl text-[hsla(217,12%,64%,1)];
+  }
 }
 
 .line {
@@ -16,4 +32,8 @@
 
 .work {
   @apply bg-[#905d7474] text-[#d49cb7];
+}
+
+.project {
+  @apply bg-[#d2b79460] text-[#ebca9f];
 }

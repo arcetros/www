@@ -7,7 +7,7 @@
     & .seperator {
       @apply py-8;
 
-      & span {
+      & .seperator__head {
         @apply relative mb-8 inline-block text-xl font-bold;
       }
 
