@@ -14,11 +14,11 @@
   }
 
   & h2 {
-    @apply w-fit text-[2rem] leading-snug;
+    @apply w-fit text-2xl leading-snug lg:text-[2rem];
   }
 
   & h3 {
-    @apply mb-4 text-xl text-[hsla(217,12%,64%,1)];
+    @apply mb-4 text-base text-[hsla(217,12%,64%,1)] lg:text-xl;
   }
 }
 

@@ -1,7 +1,7 @@
 import { clsx } from 'clsx'
 import Link from 'next/link'
 import React from 'react'
-import { Archive, Paperclip } from 'react-feather'
+import { Archive, CornerDownRight, Paperclip, Star } from 'react-feather'
 
 import { TimelineSeperator, TimelineWrapper } from '@/src/components/Common/Timeline'
 import Container from '@/src/components/UI/Container/Container'
@@ -74,10 +74,16 @@ const ProjectItem = ({
       <div
         key={key}
         className={clsx(
-          'group relative mb-1 flex w-full cursor-pointer items-center justify-center'
+          'group relative mb-1 flex cursor-pointer flex-col justify-between rounded-xl border border-primary-1 transition duration-300 ease-in-out hover:bg-primary-1'
         )}
       >
         {children}
+        <div className='flex items-center justify-between rounded-b-xl border-t border-primary-1 duration-300 ease-in-out group-hover:bg-[#383c63]'>
+          <h5 className='p-4 text-sm'>See detailed info</h5>
+          <div className='pr-4'>
+            <CornerDownRight size={20} />
+          </div>
+        </div>
       </div>
     </Link>
   )
@@ -89,11 +95,14 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
     <div className='flex min-h-screen flex-col justify-center py-[calc(4.2rem*2)] px-4 xl:px-0'>
       <Container>
         <div className='min-w-full text-primary-5'>
-          <h1 className='text-5xl'>arcetros.</h1>
+          <h1 className='text-6xl'>
+            Hi !
+            <br />
+            I&#39;m Mufid<span className='text-primary-4'>.</span>
+          </h1>
           <p className='mt-[1.25em] w-fit text-base font-light text-gray-200 lg:text-xl'>
-            Hey, I&#39;am Mufid Arkanu, a{' '}
-            <strong className='text-primary-4'>front-end developer</strong> with a passion of
-            building accessible, responsive and fast performant{' '}
+            I&#39;am a <strong className='text-primary-4'>front-end developer</strong> with a
+            passion of building accessible, responsive and fast performant{' '}
             <strong className='text-primary-4'>JAM</strong> stack sites.
           </p>
           <p className='mt-[1.25em] text-gray-200'>
@@ -105,37 +114,47 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
           </p>
         </div>
 
-        <div className='relative mt-32 mb-8 flex w-fit flex-col items-start rounded text-primary-5 lg:flex-row'>
-          <span className='mr-4 rounded-full bg-primary-1 p-3'>
-            <Paperclip size={20} />
-          </span>
-          <div className='mt-4 lg:mt-2'>
-            <h1 className='w-fit text-lg font-bold'>Featured Projects</h1>
-            <p className='mt-2'>
-              These are list of project that i&#39;am proud of, you can see other project{' '}
-              <a
-                target='_blank'
-                href='https://github.com/arcetros?tab=repositories'
-                rel='noreferrer'
-                className='text-primary-4 underline'
-              >
-                here
-              </a>
-            </p>
-            <div className='mt-8 w-full lg:mt-[1em]'>
-              {projects.map((project, id) => (
-                <ProjectItem slug={project.slug} id={id} key={id}>
-                  <h1 className='w-fit pr-4 text-xl text-primary-4 group-hover:underline'>
-                    {project.title}
-                  </h1>
-                  <p className='mt-1 w-full px-4 text-sm text-gray-300 group-hover:underline'>
-                    {project.description}
-                  </p>
-                </ProjectItem>
-              ))}
-            </div>
-          </div>
+        <h1 className='mt-32 w-fit text-lg font-bold'>Featured Projects</h1>
+        <p className='text-sm text-gray-200'>These are lists of project that i&#39;am proud of</p>
+        <div className='mt-8 grid w-full grid-cols-1 flex-wrap gap-2 lg:grid-cols-2'>
+          {projects.map((project, id) => (
+            <ProjectItem slug={project.slug} id={id} key={id}>
+              <div className='p-4'>
+                <div className='flex items-center justify-between'>
+                  <div className='flex items-center'>
+                    <div className='mr-2 flex h-8 w-8 rounded-full bg-primary-1'>
+                      <span className='m-auto'>{project.title.slice(0, 1)}</span>
+                    </div>
+                    <h1 className='w-fit pr-4 text-lg text-gray-100'>{project.title}</h1>
+                  </div>
+                  <div className='flex items-center gap-x-3 text-gray-300'>
+                    <Star size={15} />
+                    <span>2</span>
+                  </div>
+                </div>
+
+                <p className='mt-8 w-full pb-8 text-sm text-gray-300 '>{project.description}</p>
+              </div>
+            </ProjectItem>
+          ))}
         </div>
+
+        <Link href='https://github.com/arcetros?tab=repositories'>
+          <a
+            target='_blank'
+            className='relative mt-8 mb-8 flex w-full cursor-pointer flex-col items-start rounded-xl border border-primary-1 px-4 py-8 text-primary-5 transition-transform duration-300 ease-in-out hover:scale-105 lg:flex-row'
+          >
+            <span className='mr-4 rounded-full bg-primary-1 p-3'>
+              <Paperclip size={20} />
+            </span>
+            <div className='mt-4 lg:mt-2'>
+              <h1 className='w-fit text-lg font-bold'>Other Projects</h1>
+              <p className='mt-2 text-sm text-gray-200'>
+                Here you can see the rest of my projects that I have listed on my github repo.
+              </p>
+            </div>
+          </a>
+        </Link>
 
         <div className='relative mt-32 mb-8 flex w-fit flex-col items-start rounded text-primary-5 lg:flex-row'>
           <span className='mr-4 rounded-full bg-primary-1 p-3'>
@@ -144,7 +163,7 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
           <div className='mt-4 lg:mt-2'>
             <h1 className='w-fit text-lg font-bold'>Past Experiences</h1>
             <div>
-              <p className='mt-2'>
+              <p className='mt-2 text-sm'>
                 Currently <strong className='text-primary-4'>open</strong> to new projects and
                 select freelance work
               </p>

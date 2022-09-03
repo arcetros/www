@@ -3,7 +3,6 @@
 
   & .wrapper {
     @apply relative flex w-full flex-col;
-
     & .seperator {
       @apply py-8;
 
@@ -16,4 +15,8 @@
       }
     }
   }
+}
+
+.wrapper_hidden {
+  @apply max-h-[500px] overflow-hidden;
 }
