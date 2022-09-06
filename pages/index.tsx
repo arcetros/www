@@ -11,15 +11,14 @@ import { getAllProjects, ProjectMeta } from '@/src/services'
 
 const DUMMY = [
   {
-    date: '2022-08-07T10:17:20+00:00',
-    title: 'Blocite',
+    date: '2022-09-02T04:22:57+00:00',
+    title: 'aclemon',
     meta: {
       language: 'Typescript',
-      star: 2,
+      star: 0,
       variant: 'project',
-      link: 'https://github.com/arcetros/blocite',
-      subTitle:
-        'Collective of car cultural resources with a shared passion of uncovering the worlds exciting car cultures'
+      link: 'https://github.com/arcetros/aclemon',
+      subTitle: 'Cooking recipes sharing platform built for Indonesian 🥗'
     }
   },
   {
