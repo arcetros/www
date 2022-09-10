@@ -105,11 +105,27 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
             <strong className='text-primary-4'>JAM</strong> stack sites.
           </p>
           <p className='mt-[1.25em] text-gray-200'>
-            Find me on <a className='text-primary-4 underline decoration-yellow-100'>Github</a>,{' '}
-            <a className='text-primary-4 underline decoration-yellow-100'>Twitter</a>
-            <br />
+            Find me on{' '}
+            <a
+              className='text-primary-4 underline decoration-yellow-100'
+              href='https://github.com/arcetros'
+              target='_blank'
+              rel='noreferrer'
+            >
+              Github
+            </a>
+            , <br />
             Mail me at{' '}
-            <a className='text-primary-4 underline decoration-yellow-100'>0arcetros@gmail.com</a>
+            <a className='text-primary-4 underline decoration-yellow-100'>
+              0arcetros@gmail.com
+            </a> |{' '}
+            <a
+              href='/arcetros-resume.pdf'
+              target='_blank'
+              className='text-primary-4 underline decoration-yellow-100'
+            >
+              My Resume
+            </a>
           </p>
         </div>
 
@@ -128,7 +144,7 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
                   </div>
                   <div className='flex items-center gap-x-3 text-gray-300'>
                     <Star size={15} />
-                    <span>2</span>
+                    <span>...</span>
                   </div>
                 </div>
 
