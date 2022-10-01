@@ -9,6 +9,8 @@ import Timeline from '@/src/components/UI/Timeline'
 import { getNewTimeline } from '@/src/Helper'
 import { getAllProjects, ProjectMeta } from '@/src/services'
 
+import { TProjects } from './api/projects'
+
 const DUMMY = [
   {
     date: '2022-09-02T04:22:57+00:00',
@@ -60,7 +62,6 @@ export async function getStaticProps() {
 const ProjectItem = ({
   children,
   key,
-  id,
   slug
 }: {
   slug?: string
@@ -69,7 +70,7 @@ const ProjectItem = ({
   id: number
 }) => {
   return (
-    <Link href={`/${slug}`} key={key}>
+    <Link href={`/${slug?.toLowerCase()}`} key={key}>
       <div
         key={key}
         className={clsx(
@@ -89,7 +90,23 @@ const ProjectItem = ({
 }
 
 const Home = ({ projects }: { projects: ProjectMeta[] }) => {
+  const [repos, setRepos] = React.useState<TProjects[]>([])
+
+  React.useEffect(() => {
+    const fetchProject = async () => {
+      const projects = await fetch('/api/projects')
+      return await projects.json()
+    }
+    fetchProject().then(({ repos }) => {
+      const repositories = repos as TProjects[]
+      const filterProjects = repositories
+        .filter((repo) => projects.some((project) => project.slug === repo.name.toLowerCase()))
+        .sort((a, b) => b.stars - a.stars)
+      setRepos(filterProjects)
+    })
+  }, [])
   const { timeline } = getNewTimeline(DUMMY, 'year')
+
   return (
     <div className='flex min-h-screen flex-col justify-center py-[calc(4.2rem*2)] px-4 xl:px-0'>
       <Container>
@@ -132,23 +149,23 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
         <h1 className='mt-32 w-fit text-lg font-bold'>Featured Projects</h1>
         <p className='text-sm text-gray-200'>These are lists of project that i&#39;am proud of</p>
         <div className='mt-8 grid w-full grid-cols-1 flex-wrap gap-2 lg:grid-cols-2'>
-          {projects.map((project, id) => (
-            <ProjectItem slug={project.slug} id={id} key={id}>
+          {repos.map((repo, id) => (
+            <ProjectItem slug={repo.name} id={id} key={id}>
               <div className='p-4'>
                 <div className='flex items-center justify-between'>
                   <div className='flex items-center'>
                     <div className='mr-2 flex h-8 w-8 rounded-full bg-primary-1'>
-                      <span className='m-auto'>{project.title.slice(0, 1)}</span>
+                      <span className='m-auto'>{repo.name.slice(0, 1)}</span>
                     </div>
-                    <h1 className='w-fit pr-4 text-lg text-gray-100'>{project.title}</h1>
+                    <h1 className='w-fit pr-4 text-lg text-gray-100'>{repo.name}</h1>
                   </div>
                   <div className='flex items-center gap-x-3 text-gray-300'>
                     <Star size={15} />
-                    <span>...</span>
+                    <span>{repo.stars}</span>
                   </div>
                 </div>
 
-                <p className='mt-8 w-full pb-8 text-sm text-gray-300 '>{project.description}</p>
+                <p className='mt-8 w-full pb-8 text-sm text-gray-300 '>{repo.description}</p>
               </div>
             </ProjectItem>
           ))}
