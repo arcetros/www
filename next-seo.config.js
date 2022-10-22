@@ -5,17 +5,17 @@
  */
 
 const defaultSEO = {
-  defaultTitle: 'arcetros',
+  defaultTitle: 'Mufid Arkanu',
   description:
-    "Hey, I'am Mufid Arkanu, a front-end developer with a passion of building accessible, responsive and fast performant JAM stack sites.",
-  titleTemplate: '%s — arcetros',
+    ' A software engineer specialized in front-end development, building things that improves the lives of people.',
+  titleTemplate: '%s — Mufid Arkanu',
 
-  additionalLinkTags: [
-    {
-      rel: 'icon',
-      href: 'https://arcetros.vercel.app/favicon.ico'
-    }
-  ],
+  // additionalLinkTags: [
+  //   {
+  //     rel: 'icon',
+  //     href: 'https://arcetros.vercel.app/favicon.ico'
+  //   }
+  // ],
 
   additionalMetaTags: [
     {

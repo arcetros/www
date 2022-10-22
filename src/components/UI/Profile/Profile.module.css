@@ -1,0 +1,9 @@
+.root {
+  @apply min-w-full text-primary-5;
+
+  & li:not(:last-child):after {
+    content: ' \00b7';
+    display: inline-flex;
+    margin: 0 0.375rem;
+  }
+}

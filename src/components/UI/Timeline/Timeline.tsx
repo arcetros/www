@@ -29,7 +29,7 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle }: Timel
       <div>
         {lastIndex && <div className={s.line} />}
         <Clock
-          className='absolute left-[calc((40px)*-1-9px)] top-[7px] text-primary'
+          className='absolute left-[calc((40px)*-1-9px)] top-[7px] text-primary-1'
           size={20}
           fill='rgb(156 163 175)'
         />
