@@ -8,9 +8,6 @@
 
 body {
   font-family: 'Lexend Deca', sans-serif;
-  background: radial-gradient(circle at 100% 80%, #f2d3ab, transparent 30%),
-    radial-gradient(circle at 80% 80%, #f2d3ab, transparent 25%),
-    radial-gradient(circle at 0% 100%, #f2d3ab, #f2d3ab, transparent 25%);
 }
 
 * {
