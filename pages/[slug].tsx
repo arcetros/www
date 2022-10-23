@@ -41,7 +41,7 @@ const Project = ({ project }: { project: MDXPost }) => {
           images: [{ url: `https://arcetros.vercel.app/projects/${project.meta.slug}.png` }]
         }}
       />
-      <div className='flex min-h-screen justify-center py-[calc(4.2rem*2)] px-4 xl:px-0'>
+      <div className='flex min-h-screen justify-center bg-[#171717]/90 py-[calc(4.2rem*2)] px-4 backdrop-blur-xl xl:px-0'>
         <Content project={project} />
       </div>
     </>

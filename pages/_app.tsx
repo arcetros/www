@@ -1,5 +1,8 @@
 import '../styles/globals.css'
-import '@fontsource/lexend-deca'
+import '@fontsource/lexend-deca/300.css'
+import '@fontsource/lexend-deca/400.css'
+import '@fontsource/lexend-deca/500.css'
+import '@fontsource/lexend-deca/700.css'
 
 import type { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'

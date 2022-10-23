@@ -1,55 +1,18 @@
 import { clsx } from 'clsx'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Archive, CornerDownRight, Paperclip, Star } from 'react-feather'
 
 import { TimelineSeperator, TimelineWrapper } from '@/src/components/Common/Timeline'
 import Container from '@/src/components/UI/Container/Container'
+import Profile from '@/src/components/UI/Profile/Profile'
 import Timeline from '@/src/components/UI/Timeline'
+import { TIMELINE_ITEMS } from '@/src/constants'
 import { getNewTimeline } from '@/src/Helper'
 import { getAllProjects, ProjectMeta } from '@/src/services'
 
 import { TProjects } from './api/projects'
-
-const DUMMY = [
-  {
-    date: '2022-09-02T04:22:57+00:00',
-    title: 'aclemon',
-    meta: {
-      language: 'Typescript',
-      star: 0,
-      variant: 'project',
-      link: 'https://github.com/arcetros/aclemon',
-      subTitle: 'Cooking recipes sharing platform built for Indonesian 🥗'
-    }
-  },
-  {
-    date: '2022-06-04T09:20:52+00:00',
-    endDate: '2022-07-08T10:17:20+00:00',
-    title: 'Bali Stage',
-    meta: {
-      star: 2,
-      variant: 'work',
-      subTitle: 'Freelance Designer & Developer'
-    }
-  },
-  {
-    date: '2021-03-07T09:20:52+00:00',
-    title: 'SMK TI Bali Global',
-    badgeTitle: 'Education',
-    meta: {
-      subTitle: 'Graduated vocational highschool'
-    }
-  },
-  {
-    date: '2020-03-25T03:56:50+00:00',
-    title: 'PT Kriya Jaya Internasional',
-    meta: {
-      subTitle: 'Intern Digital Designer & Developer',
-      variant: 'work'
-    }
-  }
-]
 
 export async function getStaticProps() {
   const projects = getAllProjects()
@@ -105,48 +68,14 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
       setRepos(filterProjects)
     })
   }, [])
-  const { timeline } = getNewTimeline(DUMMY, 'year')
+  const { timeline } = getNewTimeline(TIMELINE_ITEMS, 'year')
 
   return (
-    <div className='flex min-h-screen flex-col justify-center py-[calc(4.2rem*2)] px-4 xl:px-0'>
+    <div className='flex min-h-screen flex-col justify-center bg-[#171717]/90  py-[calc(4.2rem*2)] px-4 xl:px-0'>
       <Container>
-        <div className='min-w-full text-primary-5'>
-          <h1 className='text-6xl'>
-            Hi !
-            <br />
-            I&#39;m Mufid<span className='text-primary-4'>.</span>
-          </h1>
-          <p className='mt-[1.25em] w-fit text-base font-light text-gray-200 lg:text-xl'>
-            I&#39;am a <strong className='text-primary-4'>front-end developer</strong> with a
-            passion of building accessible, responsive and fast performant{' '}
-            <strong className='text-primary-4'>JAM</strong> stack sites.
-          </p>
-          <p className='mt-[1.25em] text-gray-200'>
-            Find me on{' '}
-            <a
-              className='text-primary-4 underline decoration-yellow-100'
-              href='https://github.com/arcetros'
-              target='_blank'
-              rel='noreferrer'
-            >
-              Github
-            </a>
-            , <br />
-            Mail me at{' '}
-            <a className='text-primary-4 underline decoration-yellow-100'>
-              0arcetros@gmail.com
-            </a> |{' '}
-            <a
-              href='/arcetros-resume.pdf'
-              target='_blank'
-              className='text-primary-4 underline decoration-yellow-100'
-            >
-              My Resume
-            </a>
-          </p>
-        </div>
+        <Profile />
 
-        <h1 className='mt-32 w-fit text-lg font-bold'>Featured Projects</h1>
+        {/* <h1 className='mt-32 w-fit text-lg font-bold'>Featured Projects</h1>
         <p className='text-sm text-gray-200'>These are lists of project that i&#39;am proud of</p>
         <div className='mt-8 grid w-full grid-cols-1 flex-wrap gap-2 lg:grid-cols-2'>
           {repos.map((repo, id) => (
@@ -186,39 +115,29 @@ const Home = ({ projects }: { projects: ProjectMeta[] }) => {
               </p>
             </div>
           </a>
-        </Link>
+        </Link> */}
 
-        <div className='relative mt-32 mb-8 flex w-fit flex-col items-start rounded text-primary-5 lg:flex-row'>
-          <span className='mr-4 rounded-full bg-primary-1 p-3'>
-            <Archive size={20} />
-          </span>
+        <div className='relative mt-16 mb-8 flex w-fit flex-col items-start rounded text-primary-5 lg:flex-row'>
           <div className='mt-4 lg:mt-2'>
-            <h1 className='w-fit text-lg font-bold'>Past Experiences</h1>
-            <div>
-              <p className='mt-2 text-sm'>
-                Currently <strong className='text-primary-4'>open</strong> to new projects and
-                select freelance work
-              </p>
-              <TimelineWrapper>
-                {timeline
-                  .sort((a, b) => parseInt(b.year) - parseInt(a.year))
-                  .map((item, id) => (
-                    <TimelineSeperator seperator={item.year} key={id}>
-                      {item.timeline
-                        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-                        .map((t, id) => (
-                          <Timeline
-                            badgeTitle={t.badgeTitle}
-                            content={t}
-                            variant={t?.meta?.variant}
-                            lastIndex={id + 1 !== item.timeline.length}
-                            key={id}
-                          />
-                        ))}
-                    </TimelineSeperator>
-                  ))}
-              </TimelineWrapper>
-            </div>
+            <TimelineWrapper>
+              {timeline
+                .sort((a, b) => parseInt(b.year) - parseInt(a.year))
+                .map((item, id) => (
+                  <TimelineSeperator seperator={item.year} key={id}>
+                    {item.timeline
+                      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+                      .map((t, id) => (
+                        <Timeline
+                          badgeTitle={t.badgeTitle}
+                          content={t}
+                          variant={t?.meta?.variant}
+                          lastIndex={id + 1 !== item.timeline.length}
+                          key={id}
+                        />
+                      ))}
+                  </TimelineSeperator>
+                ))}
+            </TimelineWrapper>
           </div>
         </div>
       </Container>
