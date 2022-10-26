@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 interface ContainerProps {
   className?: string
   children?: any
-  el?: HTMLElement
+  el?: HTMLElement | any
   clean?: boolean
 }
 

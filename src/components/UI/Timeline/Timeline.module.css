@@ -14,7 +14,7 @@
   }
 
   & h2 {
-    @apply w-fit text-2xl leading-snug lg:text-2xl;
+    @apply w-fit text-2xl font-bold leading-snug lg:text-2xl;
   }
 
   & h3 {

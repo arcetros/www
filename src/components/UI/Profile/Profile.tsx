@@ -1,8 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import { GitHub, Linkedin } from 'react-feather'
-
-import { GITHUB_URL, LINKEDIN_URL } from '@/src/constants'
 
 import s from './Profile.module.css'
 
@@ -10,9 +7,15 @@ const Profile: React.FunctionComponent = () => {
   return (
     <div className={s.root}>
       <div className='flex-grow-1 flex justify-between'>
-        <div className='relative h-32 w-32'>
-          <Image src='/peep.png' layout='fill' objectFit='cover' className='rounded-full' />
-        </div>
+        <picture className='relative h-32 w-32'>
+          <Image
+            src='/peep.png'
+            alt='Mufid Arkanu'
+            layout='fill'
+            objectFit='cover'
+            className='rounded-full'
+          />
+        </picture>
       </div>
       <h1 className='mt-2 text-2xl font-bold'>Muhammad Mufid Arkanu</h1>
       <ul className='flex text-sm font-normal text-gray-300'>
@@ -34,18 +37,6 @@ const Profile: React.FunctionComponent = () => {
         A software engineer specialized in front-end development, building things that improves the
         lives of people.
       </p>
-      <div className='mt-4 flex gap-x-3'>
-        <div className='cursor-pointer rounded-full p-2 transition duration-200 ease-out hover:bg-[#50505041]'>
-          <a href={GITHUB_URL} target='_blank' rel='noreferrer'>
-            <GitHub width={20} height={20} />
-          </a>
-        </div>
-        <div className='cursor-pointer rounded-full p-2 transition duration-200 ease-out hover:bg-[#50505041]'>
-          <a href={LINKEDIN_URL} target='_blank' rel='noreferrer'>
-            <Linkedin width={20} height={20} />
-          </a>
-        </div>
-      </div>
     </div>
   )
 }

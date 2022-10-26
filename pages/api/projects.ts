@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from 'next'
+
 export interface TProjects {
   name: string
   stars: number
@@ -9,7 +11,7 @@ export interface TProjects {
 }
 ;[]
 
-export default async (req, res) => {
+export default async (_: NextApiRequest, res: NextApiResponse) => {
   const url = 'https://api.github.com/users/arcetros/repos'
   const response = await fetch(url)
   const json = await response.json()
