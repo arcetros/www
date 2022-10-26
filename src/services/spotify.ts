@@ -14,8 +14,38 @@ export const getAccessToken = async (refreshToken: string) => {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
-    process.env.SPOTIFY_ACCESS_TOKEN = tokens.access_token
+    const access_token = tokens.access_token
+    return access_token
   } catch (e) {
     console.warn(e)
   }
+}
+
+export const fetchLastPlayedTrack = async () => {
+  const access_token = await getAccessToken(process.env.SPOTIFY_REFRESH_TOKEN as string)
+  const data: { item: SpotifyTrack; is_playing: boolean } = await fetcher(
+    `https://api.spotify.com/v1/me/player/currently-playing`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${access_token as string}`
+      }
+    }
+  )
+
+  if (!data?.item) {
+    const { items }: { items: { track: SpotifyTrack; played_at: string }[] } = await fetcher(
+      `https://api.spotify.com/v1/me/player/recently-played`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${access_token as string}`
+        }
+      }
+    )
+
+    return { track: items[0].track, status: 'offline' }
+  }
+
+  return { track: data.item, status: data.is_playing ? 'online' : 'offline' }
 }
