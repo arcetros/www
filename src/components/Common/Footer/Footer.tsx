@@ -3,10 +3,15 @@ import React from 'react'
 import { GITHUB_URL, LINKEDIN_URL } from '@/src/constants'
 
 import Container from '../../UI/Container'
+import { SpotifyTile } from '../SpotifyTile'
 
 const Footer = () => {
   return (
-    <Container el='footer' className='border-t border-neutral-800 py-8'>
+    <Container
+      el='footer'
+      className='flex flex-col gap-4 border-t border-neutral-800 px-4 py-8 lg:px-0'
+    >
+      <SpotifyTile />
       <ul className='flex flex-col space-y-3 text-sm text-neutral-400'>
         <li>
           <a
@@ -29,7 +34,7 @@ const Footer = () => {
           </a>
         </li>
       </ul>
-      <div className='mt-8 flex justify-between text-xs'>
+      <div className='mt-8 flex flex-col justify-between text-xs lg:flex-row'>
         <p className='text-neutral-400'>
           Made using Next.js by{' '}
           <a className='font-bold' href={GITHUB_URL} target='_blank' rel='noreferrer'>
