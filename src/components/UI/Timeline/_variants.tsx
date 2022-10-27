@@ -27,5 +27,5 @@ export const TitleVariants = {
 }
 
 export const LanguageVariants = {
-  Typescript: <div className='mx-1.5 h-2 w-2 rounded-full bg-blue-500' />
+  TypeScript: <div className='mx-1.5 h-2 w-2 rounded-full bg-blue-500' />
 }

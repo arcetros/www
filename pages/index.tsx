@@ -1,23 +1,26 @@
+import { GetStaticProps } from 'next'
 import React from 'react'
 
 import MainTimeline from '@/src/components/Common/Timeline/MainTimeline'
 import Container from '@/src/components/UI/Container/Container'
 import Profile from '@/src/components/UI/Profile/Profile'
-import { getAllProjects, ProjectMeta } from '@/src/services'
+import { getAllProjects } from '@/src/services'
 
-export async function getStaticProps() {
+import { TProjects } from './api/projects'
+
+export const getStaticProps: GetStaticProps = async () => {
   const getProjects = await getAllProjects()
 
   return { props: { projects: getProjects } }
 }
 
-const Home = ({ projects }: { projects: ProjectMeta[] }) => {
+const Home = ({ projects }: { projects: TProjects[] }) => {
   // TODO: Create feautured projects list
   return (
     <main className='flex min-h-screen flex-col justify-center py-[calc(4.2rem*2)] px-4 xl:px-0'>
       <Container>
         <Profile />
-        <MainTimeline />
+        <MainTimeline projects={projects} />
       </Container>
     </main>
   )

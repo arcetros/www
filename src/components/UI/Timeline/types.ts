@@ -7,5 +7,12 @@ export type TimelineContent = {
   date: string | number
   endDate?: string | number
   title: string | number | null
-  meta: any
+  meta?: {
+    stars?: number
+    link?: string
+    subTitle?: string
+    variant?: string
+    language?: string
+    description?: string
+  }
 }

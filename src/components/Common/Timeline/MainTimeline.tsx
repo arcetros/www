@@ -1,3 +1,4 @@
+import { TProjects } from 'pages/api/projects'
 import React from 'react'
 
 import Timeline from '@/src/components/UI/Timeline'
@@ -7,8 +8,12 @@ import { getNewTimeline } from '@/src/Helper'
 import TimelineSeperator from './TimelineSeperator'
 import TimelineWrapper from './TimelineWrapper'
 
-const MainTimeline: React.FunctionComponent = () => {
-  const { timeline } = getNewTimeline(TIMELINE_ITEMS, 'year')
+type Props = {
+  projects: TProjects[]
+}
+
+const MainTimeline: React.FunctionComponent<Props> = ({ projects }) => {
+  const { timeline } = getNewTimeline(projects.concat(TIMELINE_ITEMS), 'year')
   return (
     <div className='relative mt-16 mb-8 flex w-fit flex-col items-start rounded text-primary-5 lg:flex-row'>
       <div className='mt-4 lg:mt-2'>

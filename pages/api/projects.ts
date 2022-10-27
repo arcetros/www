@@ -1,13 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export interface TProjects {
-  name: string
-  stars: number
-  url: string
-  description: string
-  language: string
-  stargazers_url: string
-  homepage: string
+  title?: string
+  date: string
+  badgeTitle?: string
+  meta?: {
+    stars?: number | 0
+    link?: string
+    subTitle?: string
+    variant?: string
+    language?: string
+    description?: string
+  }
 }
 ;[]
 
@@ -19,13 +23,15 @@ export default async (_: NextApiRequest, res: NextApiResponse) => {
 
   json.forEach((p) => {
     projectsList.push({
-      name: p.name,
-      stars: p.stargazers_count,
-      url: p.html_url,
-      description: p.description,
-      language: p.language,
-      stargazers_url: p.stargazers_url,
-      homepage: p.homepage
+      title: p.name,
+      date: p.created_at,
+      meta: {
+        stars: p.stargazers_count,
+        link: p.html_url,
+        subTitle: p.description,
+        variant: 'project',
+        language: p.language
+      }
     })
   })
 

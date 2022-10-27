@@ -69,12 +69,10 @@ export const getAllProjects = async () => {
   try {
     const repositories = result.repos as TProjects[]
     const filteredRepos = repositories
-      .filter((repo) => posts.some((project) => project.meta.slug === repo.name.toLowerCase()))
-      .sort((a, b) => b.stars - a.stars)
+      .filter((repo) => posts.some((project) => project.meta.slug === repo.title?.toLowerCase()))
+      .sort((a, b) => (b?.meta?.stars || 0) - (a?.meta?.stars || 0))
     return filteredRepos
   } catch (err) {
-    console.warn(err)
+    throw new Error(err as string)
   }
-
-  return null
 }

@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import dayjs from 'dayjs'
 import React from 'react'
-import { Clock } from 'react-feather'
+import { Clock, Star } from 'react-feather'
 
 import { LanguageVariants, TitleVariants } from './_variants'
 import s from './Timeline.module.css'
@@ -41,15 +41,21 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle }: Timel
         <time dateTime={date.toString()}>
           {formatDate(content.date)} {content.endDate && `- ${formatDate(content.endDate)}`}
         </time>
-        {content.meta.language && (
+        {content.meta?.language && (
           <>
             {LanguageVariants[content.meta.language]}
             <span className={s.language}>{content.meta.language}</span>
           </>
         )}
+        {content.meta?.stars && (
+          <>
+            <Star className='mx-1.5 h-[10px] w-[10px]' />
+            <span>{content.meta.stars}</span>
+          </>
+        )}
       </div>
-      <h2 className={clsx(content?.meta?.link && 'cursor-pointer hover:underline')}>
-        {content.meta.link ? (
+      <h2 className={clsx(content?.meta?.link && 'cursor-pointer capitalize hover:underline')}>
+        {content.meta?.link ? (
           <a target='_blank' href={content.meta.link} rel='noreferrer'>
             {content.title}
           </a>
