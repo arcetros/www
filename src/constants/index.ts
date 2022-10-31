@@ -21,7 +21,7 @@ export const TIMELINE_ITEMS = [
     }
   },
   {
-    date: '2020-03-25T03:56:50+00:00',
+    date: '2019-01-12T03:50:09+00:00',
     title: 'PT Kriya Jaya Internasional',
     meta: {
       subTitle: 'Intern Digital Designer & Developer',
