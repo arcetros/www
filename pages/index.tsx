@@ -10,11 +10,13 @@ import { TProjects } from './api/projects'
 
 export const getStaticProps: GetStaticProps = async () => {
   const getProjects = await getAllProjects()
+  console.log(getProjects)
 
   return { props: { projects: getProjects } }
 }
 
 const Home = ({ projects }: { projects: TProjects[] }) => {
+  // console.log(projects)
   // TODO: Create feautured projects list
   return (
     <main className='flex min-h-screen flex-col justify-center py-[calc(4.2rem*2)] px-4 xl:px-0'>
