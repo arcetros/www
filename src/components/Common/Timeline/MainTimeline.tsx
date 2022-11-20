@@ -1,9 +1,9 @@
-import { TProjects } from 'pages/api/projects'
 import React from 'react'
 
 import Timeline from '@/src/components/UI/Timeline'
 import { TIMELINE_ITEMS } from '@/src/constants'
 import { getNewTimeline } from '@/src/Helper'
+import { TProjects } from '@/src/types'
 
 import TimelineSeperator from './TimelineSeperator'
 import TimelineWrapper from './TimelineWrapper'

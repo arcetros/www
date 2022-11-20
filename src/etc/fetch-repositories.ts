@@ -1,10 +1,10 @@
 import fetch from 'cross-fetch'
 import * as fs from 'fs'
-import { TProjects } from 'pages/api/projects'
 import path from 'path'
 
 import { GITHUB_API_URL } from '../constants'
 import { getDescriptionFromSelector, getImageFromSelector } from '../Helper/ogSelectors'
+import { TProjects } from '../types'
 
 interface RepositoriesResponse {
   [name: string]: any

@@ -1,8 +1,10 @@
 import fs from 'fs'
+import fsPromises from 'fs/promises'
 import { sync } from 'glob'
 import matter from 'gray-matter'
-import { TProjects } from 'pages/api/projects'
 import path from 'path'
+
+import { TProjects } from '../types'
 
 export interface ProjectMeta {
   introduction: string
@@ -54,20 +56,15 @@ export const getProjectFromSlug = (slug: string): Project => {
 }
 
 export const getAllProjects = async () => {
-  let url: string | undefined
-
-  if (process.env.NODE_ENV === 'production') {
-    url = 'https://arcetros.vercel.app'
-  } else if (process.env.NODE_ENV === 'development') {
-    url = 'http://localhost:3000'
-  }
-
   const posts = getSlugs().map((slug) => getProjectFromSlug(slug))
-  const getProjectsFromGithub = await fetch(`${url}/api/projects`)
-  const result = await getProjectsFromGithub.json()
+
+  const filePath = path.join(process.cwd(), './src/data/')
+  const getJsonData = await fsPromises.readFile(filePath + 'repositories-data.json', 'utf-8')
+
+  const result = JSON.parse(getJsonData) as TProjects[]
 
   try {
-    const repositories = result.repos as TProjects[]
+    const repositories = result
     const filteredRepos = repositories
       .filter((repo) => posts.some((project) => project.meta.slug === repo.title?.toLowerCase()))
       .sort((a, b) => (b?.meta?.stars || 0) - (a?.meta?.stars || 0))
