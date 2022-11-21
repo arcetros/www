@@ -30,9 +30,9 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, childre
       <div>
         {lastIndex && <div className={s.line} />}
         <Clock
-          className='absolute left-[calc((40px)*-1-9px)] top-[7px] text-primary-1'
+          className='absolute left-[calc((40px)*-1-9px)] top-[7px] text-neutral-600'
           size={20}
-          fill='rgb(156 163 175)'
+          fill='rgb(30 30 30)'
         />
       </div>
       <div className={rootBadgeClassName}>

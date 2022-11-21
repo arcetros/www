@@ -25,7 +25,6 @@ const MainTimeline: React.FunctionComponent<Props> = ({ projects }) => {
                 {item.timeline
                   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                   .map((t, id) => {
-                    console.log(t)
                     return (
                       <>
                         <Timeline
