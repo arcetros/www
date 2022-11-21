@@ -12,9 +12,10 @@ interface Timeline {
   variant: 'work' | 'project' | 'default'
   badgeTitle?: string | number
   content: TimelineContent
+  children?: React.ReactNode
 }
 
-const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle }: Timeline) => {
+const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, children }: Timeline) => {
   const rootBadgeClassName = clsx(s.badge, {
     [s.work]: variant === 'work',
     [s.project]: variant === 'project',
@@ -29,9 +30,9 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle }: Timel
       <div>
         {lastIndex && <div className={s.line} />}
         <Clock
-          className='absolute left-[calc((40px)*-1-9px)] top-[7px] text-primary-1'
+          className='absolute left-[calc((40px)*-1-9px)] top-[7px] text-neutral-600'
           size={20}
-          fill='rgb(156 163 175)'
+          fill='rgb(30 30 30)'
         />
       </div>
       <div className={rootBadgeClassName}>
@@ -65,6 +66,7 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle }: Timel
       </h2>
       <h3>{content?.meta?.subTitle}</h3>
       <p>{content?.meta?.description}</p>
+      {children}
     </li>
   )
 }

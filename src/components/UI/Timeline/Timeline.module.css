@@ -23,7 +23,7 @@
 }
 
 .line {
-  @apply absolute -left-10 top-6 -bottom-[90px] w-[1px] bg-gray-400;
+  @apply absolute -left-10 top-6 -bottom-[90px] w-[1px] bg-neutral-700;
 }
 
 .default {

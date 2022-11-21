@@ -5,19 +5,24 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "next-export": "npm run fetch-repos && npm run build",
     "postbuild": "next-sitemap --config next-sitemap.config.mjs",
     "start": "next start",
     "lint": "next lint",
-    "check-lint": "eslint . --ext ts --ext tsx --ext js"
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "fetch-repos": "ts-node ./src/etc/fetch-repositories.ts"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.14",
     "@heroicons/react": "^1.0.6",
     "@mdx-js/react": "^2.1.3",
     "clsx": "^1.2.1",
+    "cross-fetch": "^3.1.5",
     "dayjs": "^1.11.5",
+    "dotenv": "^16.0.3",
     "glob": "^8.0.3",
     "gray-matter": "^4.0.3",
+    "htmr": "^1.0.2",
     "next": "12.2.4",
     "next-mdx-remote": "^4.1.0",
     "next-seo": "^5.5.0",
@@ -29,7 +34,8 @@
     "rehype-autolink-headings": "^6.1.1",
     "rehype-highlight": "^5.0.2",
     "rehype-slug": "^5.0.1",
-    "swr": "^1.3.0"
+    "swr": "^1.3.0",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@types/node": "18.6.4",
