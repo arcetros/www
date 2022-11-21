@@ -1,15 +1,15 @@
 import fetch from 'cross-fetch'
+import * as dotenv from 'dotenv'
 import * as fs from 'fs'
 import path from 'path'
 
 import { GITHUB_API_URL } from '../constants'
-import { getDescriptionFromSelector, getImageFromSelector } from '../Helper/ogSelectors'
 import { TProjects } from '../types'
 
 interface RepositoriesResponse {
   [name: string]: any
 }
-
+dotenv.config()
 fetchRepositories()
 
 async function fetchRepositories() {
@@ -18,9 +18,11 @@ async function fetchRepositories() {
 
   await Promise.all(
     repos.map(async (repo) => {
-      await fetch(repo.html_url)
-        .then((res) => res.text())
+      const IFRAMELY = `https://iframe.ly/api/iframely?url=${repo.html_url}&api_key=${process.env.IFRAMELY_KEY}`
+      await fetch(IFRAMELY)
+        .then((res) => res.json())
         .then((data) => {
+          console.log(data)
           projectsList.push({
             title: repo.name,
             date: repo.created_at,
@@ -31,10 +33,7 @@ async function fetchRepositories() {
               variant: 'project',
               language: repo.language
             },
-            openGraph: {
-              description: getDescriptionFromSelector(data),
-              image: getImageFromSelector(data)
-            }
+            embed: data
           })
         })
     })

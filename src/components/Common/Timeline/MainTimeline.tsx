@@ -24,15 +24,24 @@ const MainTimeline: React.FunctionComponent<Props> = ({ projects }) => {
               <TimelineSeperator seperator={item.year} key={id}>
                 {item.timeline
                   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-                  .map((t, id) => (
-                    <Timeline
-                      badgeTitle={t.badgeTitle}
-                      content={t}
-                      variant={t?.meta?.variant}
-                      lastIndex={id + 1 !== item.timeline.length}
-                      key={id}
-                    />
-                  ))}
+                  .map((t, id) => {
+                    console.log(t)
+                    return (
+                      <>
+                        <Timeline
+                          badgeTitle={t.badgeTitle}
+                          content={t}
+                          variant={t?.meta?.variant}
+                          lastIndex={id + 1 !== item.timeline.length}
+                          key={id}
+                        >
+                          {t?.embed?.html && (
+                            <div dangerouslySetInnerHTML={{ __html: t?.embed?.html }} />
+                          )}
+                        </Timeline>
+                      </>
+                    )
+                  })}
               </TimelineSeperator>
             ))}
         </TimelineWrapper>

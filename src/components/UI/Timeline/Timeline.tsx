@@ -12,9 +12,10 @@ interface Timeline {
   variant: 'work' | 'project' | 'default'
   badgeTitle?: string | number
   content: TimelineContent
+  children?: React.ReactNode
 }
 
-const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle }: Timeline) => {
+const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, children }: Timeline) => {
   const rootBadgeClassName = clsx(s.badge, {
     [s.work]: variant === 'work',
     [s.project]: variant === 'project',
@@ -65,6 +66,7 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle }: Timel
       </h2>
       <h3>{content?.meta?.subTitle}</h3>
       <p>{content?.meta?.description}</p>
+      {children}
     </li>
   )
 }

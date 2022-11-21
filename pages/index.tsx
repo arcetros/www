@@ -1,6 +1,4 @@
-import fsPromises from 'fs/promises'
 import { GetStaticProps } from 'next'
-import path from 'path'
 import React from 'react'
 
 import MainTimeline from '@/src/components/Common/Timeline/MainTimeline'
