@@ -59,7 +59,7 @@ export const getAllProjects = async () => {
   const posts = getSlugs().map((slug) => getProjectFromSlug(slug))
 
   const filePath = path.join(process.cwd(), './src/data/')
-  const getJsonData = await fsPromises.readFile(filePath + 'repositories-data.json', 'utf-8')
+  const getJsonData = await fsPromises.readFile(filePath + 'repositories.json', 'utf-8')
 
   const result = JSON.parse(getJsonData) as TProjects[]
 
