@@ -17,7 +17,7 @@ const Home = ({ projects }: { projects: TProjects[] }) => {
   // console.log(projects)
   // TODO: Create feautured projects list
   return (
-    <main className='flex min-h-screen flex-col justify-center py-[calc(4.2rem*2)] px-4 xl:px-0'>
+    <main className='flex min-h-screen flex-1 flex-col items-stretch justify-center py-[calc(4.2rem*2)] px-4 xl:px-0'>
       <Container>
         <Profile />
         <MainTimeline projects={projects} />

@@ -18,7 +18,7 @@ async function fetchRepositories() {
 
   await Promise.all(
     repos.map(async (repo) => {
-      const IFRAMELY = `https://iframe.ly/api/iframely?url=${repo.html_url}&api_key=${process.env.IFRAMELY_KEY}`
+      const IFRAMELY = `https://iframe.ly/api/iframely?url=${repo.html_url}&api_key=${process.env.IFRAMELY_KEY}&iframe=1&omit_script=1`
       await fetch(IFRAMELY)
         .then((res) => res.json())
         .then((data) => {

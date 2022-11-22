@@ -26,19 +26,17 @@ const MainTimeline: React.FunctionComponent<Props> = ({ projects }) => {
                   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                   .map((t, id) => {
                     return (
-                      <>
-                        <Timeline
-                          badgeTitle={t.badgeTitle}
-                          content={t}
-                          variant={t?.meta?.variant}
-                          lastIndex={id + 1 !== item.timeline.length}
-                          key={id}
-                        >
-                          {t?.embed?.html && (
-                            <div dangerouslySetInnerHTML={{ __html: t?.embed?.html }} />
-                          )}
-                        </Timeline>
-                      </>
+                      <Timeline
+                        badgeTitle={t.badgeTitle}
+                        content={t}
+                        variant={t?.meta?.variant}
+                        lastIndex={id + 1 !== item.timeline.length}
+                        key={id}
+                      >
+                        {t?.embed?.html && (
+                          <div dangerouslySetInnerHTML={{ __html: t?.embed?.html }} />
+                        )}
+                      </Timeline>
                     )
                   })}
               </TimelineSeperator>
