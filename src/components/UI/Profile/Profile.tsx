@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import Image from 'next/image'
 import React from 'react'
 
@@ -6,6 +7,14 @@ import { BADGES } from '@/src/_content/about-me-badges'
 import s from './Profile.module.css'
 
 const Profile: React.FunctionComponent = () => {
+  const [isExpanded, setIsExpanded] = React.useState<boolean>(false)
+  const aboutRef = React.useRef<HTMLDivElement | null>(null)
+
+  const handleExpandAbout = () => {
+    aboutRef.current?.classList.remove('Profile_about_expand__KQjSV')
+    setIsExpanded(true)
+  }
+
   return (
     <div className={s.root}>
       <div className='flex-grow-1 flex justify-between'>
@@ -27,12 +36,12 @@ const Profile: React.FunctionComponent = () => {
       <div className='flex pt-4 text-sm'>
         <span className='text-primary-4'>-</span>
         <ul className='ml-3 flex flex-wrap items-center'>
-          <li className='text-neutral-200'>Front-End Developer, self employed</li>
-          {/* <li className='cursor-pointer font-bold text-primary-4 hover:underline'>
+          <li className='text-neutral-300'>Front-End Developer, self employed</li>
+          <li className='cursor-pointer font-bold text-neutral-300 hover:underline'>
             <a href='/arcetros-resume.pdf' target='_blank'>
               View resume
             </a>
-          </li> */}
+          </li>
         </ul>
       </div>
       <dl className='flex flex-wrap pt-4'>
@@ -46,10 +55,36 @@ const Profile: React.FunctionComponent = () => {
           </dt>
         ))}
       </dl>
-      <p className='pt-4 text-sm font-normal text-neutral-200'>
-        A software engineer specialized in front-end development, building things that improves the
-        lives of people.
-      </p>
+      <section className=' pt-4'>
+        <div className='relative'>
+          <div ref={aboutRef} className={s.about_expand}>
+            <p className='text-sm font-normal text-neutral-300'>
+              👋{' '}
+              <strong>
+                Hey there!, my name is Muhammad Mufid Arkanu, and i go by arcetros online.
+              </strong>
+            </p>
+            <p className='pt-4 text-sm font-normal text-neutral-300'>
+              I&apos;am a self taught web developer specialized in front-end development based in
+              Bali, Indonesia, helping to build things that improve lives and accessible to
+              everyone.
+            </p>
+            <p className='pt-4 text-sm font-normal text-neutral-300'>
+              I mainly work within the <strong>React</strong> ecosystem, but i&apos;m keen on
+              learning new tools & technologies. On the frond-end i have experiences with{' '}
+              <strong>JavaScript, Typescript, Next.js and tiny bit of Gatsby</strong>
+            </p>
+          </div>
+        </div>
+        {!isExpanded && (
+          <div
+            onClick={handleExpandAbout}
+            className='bottom-0 z-50 flex cursor-pointer text-sm font-bold text-neutral-400'
+          >
+            Read more
+          </div>
+        )}
+      </section>
     </div>
   )
 }

@@ -9,7 +9,7 @@ const ROOT_CLASSNAME = 'mr-2 h-4 w-4'
 export const BADGES = [
   {
     title: 'Front-end Development',
-    icon: <FaCode className={`${ROOT_CLASSNAME} text-blue-500`} />
+    icon: <FaCode className={`${ROOT_CLASSNAME} text-blue-600`} />
   },
   {
     title: 'TypeScript',
