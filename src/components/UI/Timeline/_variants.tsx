@@ -23,7 +23,7 @@ const Container = ({ title, Icon }: IContainer) => {
 export const TitleVariants = {
   work: <Container Icon={Briefcase} title='Started a new job' />,
   project: <Container Icon={Code} title='Created a project' />,
-  default: 'Placeholder'
+  default: 'Other'
 }
 
 export const LanguageVariants = {

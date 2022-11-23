@@ -42,9 +42,9 @@ const SpotifyTile: React.FunctionComponent = () => {
           {data?.status === 'online' ? (
             <>
               <span className={s.barWrapper}>
+                <span className={clsx(s.bar, s.bar1)}></span>
+                <span className={clsx(s.bar, s.bar2)}></span>
                 <span className={clsx(s.bar, s.bar3)}></span>
-                <span className={clsx(s.bar, s.bar1)}></span>
-                <span className={clsx(s.bar, s.bar1)}></span>
               </span>
               Now playing
             </>
