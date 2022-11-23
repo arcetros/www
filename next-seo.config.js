@@ -5,10 +5,9 @@
  */
 
 const defaultSEO = {
-  defaultTitle: 'Mufid Arkanu',
-  description:
-    ' A software engineer specialized in front-end development, building things that improves the lives of people.',
-  titleTemplate: '%s — Mufid Arkanu',
+  defaultTitle: '@arcetros',
+  description: 'Portfolio site of Mufid Arkanu, Front-end developer based on Bali, Indonesia',
+  titleTemplate: '%s — @arcetros',
 
   // additionalLinkTags: [
   //   {
