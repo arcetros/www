@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <Container
       el='footer'
-      className='flex flex-col gap-4 border-t border-neutral-800 px-4 py-8 lg:px-0'
+      className='flex flex-col gap-4 border-t border-neutral-900 px-4 py-8 lg:px-0'
     >
       <SpotifyTile />
       <ul className='flex flex-col space-y-3 text-sm text-neutral-400'>

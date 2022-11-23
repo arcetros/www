@@ -15,7 +15,7 @@ type Props = {
 const MainTimeline: React.FunctionComponent<Props> = ({ projects }) => {
   const { timeline } = getNewTimeline(projects.concat(TIMELINE_ITEMS), 'year')
   return (
-    <div className='relative mt-16 mb-8 flex w-fit flex-col items-start rounded text-primary-5 lg:flex-row'>
+    <div className='relative mt-8 mb-8 flex w-fit flex-col items-start rounded text-primary-5 lg:flex-row'>
       <div className='mt-4 lg:mt-2'>
         <TimelineWrapper>
           {timeline
