@@ -19,6 +19,14 @@ const Profile: React.FunctionComponent = () => {
 
   return (
     <div className={s.root}>
+      <div className='mb-4 border-t border-neutral-900 pb-4'>
+        <div className='flex items-center space-x-2 rounded border-l-4 border-orange-300 bg-orange-300 bg-opacity-20 py-3 px-3'>
+          <AiFillWarning className='h-6 w-6 text-yellow-300' />
+          <span className='text-sm font-medium'>
+            I&apos;m currently open for front-end full time position.
+          </span>
+        </div>
+      </div>
       <div className='flex-grow-1 flex justify-between'>
         <picture className='relative h-32 w-32'>
           <Image
@@ -113,14 +121,6 @@ const Profile: React.FunctionComponent = () => {
           </a>
         </div>
       </section>
-      <div className='mt-4 border-t border-neutral-900 pt-4'>
-        <div className='flex items-center space-x-2 rounded border-l-4 border-orange-300 bg-orange-300 bg-opacity-20 py-3 px-3'>
-          <AiFillWarning className='h-6 w-6 text-yellow-300' />
-          <span className='text-sm font-medium'>
-            I&apos;m currently open for front-end full time position.
-          </span>
-        </div>
-      </div>
     </div>
   )
 }
