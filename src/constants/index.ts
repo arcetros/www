@@ -3,6 +3,8 @@ export const GITHUB_API_URL = 'https://api.github.com/users/arcetros/repos'
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/mufid-arkanu-80b341251/'
 export const CAL_URL = 'https://cal.com/arcetros/schedule'
 
+export const FEATURED_GITHUB_PROJECTS = ['poached', 'neulan', 'scrape-recipe-schema']
+
 export const TIMELINE_ITEMS = [
   {
     date: '2022-06-04T09:20:52+00:00',
