@@ -26,8 +26,7 @@ const defaultSEO = {
   openGraph: {
     locale: 'en_US',
     url: 'https://arcetros.vercel.app/',
-    description:
-      "Hey, I'am Mufid Arkanu, a front-end developer with a passion of building accessible, responsive and fast performant JAM stack sites.",
+    description: 'Portfolio site of Mufid Arkanu, Front-end developer based on Bali, Indonesia.',
     images: [
       {
         url: 'https://arcetros.vercel.app/og.png',
