@@ -9,11 +9,11 @@
 }
 
 .about_expand {
-  @apply z-40 max-h-[85px] overflow-hidden;
+  @apply z-40 overflow-hidden;
 }
 
 .about_expand::after {
-  @apply absolute bottom-0 left-0 z-40 h-[40px] max-h-[85px] w-full;
+  @apply absolute bottom-0 left-0 z-40 h-[40px] w-full;
   content: '';
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #111 35px);
 }

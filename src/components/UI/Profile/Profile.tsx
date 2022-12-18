@@ -57,7 +57,11 @@ const Profile: React.FunctionComponent = () => {
       </dl>
       <section className=' pt-4'>
         <div className='relative'>
-          <div ref={aboutRef} className={s.about_expand}>
+          <div
+            ref={aboutRef}
+            className={s.about_expand}
+            style={{ maxHeight: isExpanded ? '100%' : '85px' }}
+          >
             <p className='text-sm font-normal text-neutral-300'>
               👋{' '}
               <strong>
