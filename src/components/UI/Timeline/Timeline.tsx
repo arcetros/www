@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import dayjs from 'dayjs'
 import React from 'react'
 import { Clock, Star } from 'react-feather'
 
@@ -22,8 +21,19 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, childre
     [s.default]: variant === 'default'
   })
 
-  const formatDate = (date: string | number | Date | dayjs.Dayjs | null | undefined) =>
-    dayjs(date).format('MMMM DD, YYYY')
+  const [newDate, setNewDate] = React.useState<string>('')
+
+  React.useEffect(() => {
+    const formatDate = (date: string | number | Date) =>
+      new Date(date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: '2-digit'
+      })
+    const startDate = formatDate(content.date)
+    const endDate = content.endDate ? `- ${formatDate(content.endDate)}` : ''
+    setNewDate(`${startDate} ${endDate}`)
+  }, [content.endDate, content.date])
 
   return (
     <li className={s.root}>
@@ -40,7 +50,7 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, childre
       </div>
       <div className={s.badge_info}>
         <time>
-          {formatDate(content.date)} {content.endDate && `- ${formatDate(content.endDate)}`}
+          <time>{newDate}</time>
         </time>
         {content.meta?.language && (
           <>

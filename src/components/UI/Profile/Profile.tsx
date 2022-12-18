@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import { AiFillWarning } from 'react-icons/ai'
 import { BsCalendarFill, BsGithub, BsLinkedin } from 'react-icons/bs'
 
 import { BADGES } from '@/src/_content/about-me-badges'
