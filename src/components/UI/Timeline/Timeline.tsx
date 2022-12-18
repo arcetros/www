@@ -5,11 +5,11 @@ import { Clock, Star } from 'react-feather'
 
 import { LanguageVariants, TitleVariants } from './_variants'
 import s from './Timeline.module.css'
-import { type TimelineContent } from './types'
+import { TimelineContent } from './types'
 
 interface Timeline {
   lastIndex: boolean
-  variant: 'work' | 'project' | 'default'
+  variant?: 'work' | 'project' | 'default'
   badgeTitle?: string | number
   content: TimelineContent
   children?: React.ReactNode
@@ -22,8 +22,8 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, childre
     [s.default]: variant === 'default'
   })
 
-  const date = new Date(content.date)
-  const formatDate = (date) => dayjs(date).format('MMMM DD, YYYY')
+  const formatDate = (date: string | number | Date | dayjs.Dayjs | null | undefined) =>
+    dayjs(date).format('MMMM DD, YYYY')
 
   return (
     <li className={s.root}>
@@ -39,7 +39,7 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, childre
         <strong>{badgeTitle ? badgeTitle : TitleVariants[variant]}</strong>
       </div>
       <div className={s.badge_info}>
-        <time dateTime={date.toString()}>
+        <time>
           {formatDate(content.date)} {content.endDate && `- ${formatDate(content.endDate)}`}
         </time>
         {content.meta?.language && (

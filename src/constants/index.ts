@@ -1,3 +1,5 @@
+import { TimelineContent } from '../components/UI/Timeline/types'
+
 export const GITHUB_URL = 'https://github.com/arcetros'
 export const GITHUB_API_URL = 'https://api.github.com/users/arcetros/repos'
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/mufid-arkanu-80b341251/'
@@ -5,7 +7,7 @@ export const CAL_URL = 'https://cal.com/arcetros/schedule'
 
 export const FEATURED_GITHUB_PROJECTS = ['poached', 'neulan', 'scrape-recipe-schema']
 
-export const TIMELINE_ITEMS = [
+export const TIMELINE_ITEMS: TimelineContent[] = [
   {
     date: '2022-06-04T09:20:52+00:00',
     endDate: '2022-07-08T10:17:20+00:00',
