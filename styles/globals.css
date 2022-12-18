@@ -2,16 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  tab-size: 4;
+:root {
   color-scheme: dark;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #111 500px),
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #111 300px),
     fixed 0 0 / 20px 20px radial-gradient(#313131 1px, transparent 0),
     fixed 10px 10px / 20px 20px radial-gradient(#313131 1px, #111 0);
 }
