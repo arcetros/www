@@ -16,20 +16,27 @@ async function fetchRepositories() {
   const repos = (await (await fetch(GITHUB_API_URL)).json()) as RepositoriesResponse[]
   const projectsList: TProjects[] = []
 
-  repos.map(async (repo) => {
-    projectsList.push({
-      title: repo.name,
-      date: repo.created_at,
-      meta: {
-        stars: repo.stargazers_count,
-        link: repo.html_url,
-        subTitle: repo.description,
-        variant: 'project',
-        language: repo.language
-      }
+  await Promise.all(
+    repos.map(async (repo) => {
+      const IFRAMELY = `https://iframe.ly/api/iframely?url=${repo.html_url}&api_key=${process.env.IFRAMELY_KEY}`
+      await fetch(IFRAMELY)
+        .then((res) => res.json())
+        .then((data) => {
+          projectsList.push({
+            title: repo.name,
+            date: repo.created_at,
+            meta: {
+              stars: repo.stargazers_count,
+              link: repo.html_url,
+              subTitle: repo.description,
+              variant: 'project',
+              language: repo.language
+            },
+            embed: data
+          })
+        })
     })
-  })
-
+  )
   const text = JSON.stringify(projectsList)
 
   fs.writeFileSync(path.resolve(__dirname, '../data/repositories.json'), text)

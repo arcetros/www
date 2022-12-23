@@ -37,7 +37,11 @@ const MainTimeline: React.FunctionComponent<Props> = ({ projects }) => {
                         variant={t?.meta?.variant || 'default'}
                         lastIndex={id + 1 !== item.timeline.length}
                         key={id}
-                      />
+                      >
+                        {t?.embed?.html && (
+                          <div dangerouslySetInnerHTML={{ __html: t?.embed?.html }} />
+                        )}
+                      </Timeline>
                     )
                   })}
               </TimelineSeperator>
