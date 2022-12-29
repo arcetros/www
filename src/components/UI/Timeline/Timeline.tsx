@@ -65,7 +65,7 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, childre
           </>
         )}
       </div>
-      <h2 className={clsx(content?.meta?.link && 'cursor-pointer capitalize hover:underline')}>
+      <h2 className={clsx(content?.meta?.link && 'cursor-pointer capitalize')}>
         {content.meta?.link ? (
           <a target='_blank' href={content.meta.link} rel='noreferrer'>
             {content.title}
