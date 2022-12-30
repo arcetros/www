@@ -6,7 +6,7 @@ import useSWR from 'swr'
 import { fetcher } from '@/helpers/fetcher'
 import { SpotifyTrack } from '@/types'
 
-import LoadingDots from '../UI/LoadingDots/LoadingDots'
+import LoadingDots from '../ui/loading-dots/loading-dots'
 import { SpotifyIcon } from './Icon'
 import s from './SpotifyTile.module.css'
 import { normalizeTitle, normalizeTrackArtists } from './utils'

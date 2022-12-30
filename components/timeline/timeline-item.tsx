@@ -2,9 +2,10 @@ import clsx from 'clsx'
 import React from 'react'
 import { Clock, Star } from 'react-feather'
 
-import { LanguageVariants, TitleVariants } from './_variants'
-import s from './Timeline.module.css'
-import { TimelineContent } from './types'
+import { LanguageVariants, TitleVariants } from '@/_content/timeline-variants'
+import { TimelineContent } from '@/types/timeline'
+
+import s from './timeline-item.module.css'
 
 interface Timeline {
   lastIndex: boolean
@@ -14,7 +15,13 @@ interface Timeline {
   children?: React.ReactNode
 }
 
-const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, children }: Timeline) => {
+const TimelineItem = ({
+  lastIndex,
+  content,
+  variant = 'default',
+  badgeTitle,
+  children
+}: Timeline) => {
   const rootBadgeClassName = clsx(s.badge, {
     [s.work]: variant === 'work',
     [s.project]: variant === 'project',
@@ -79,4 +86,4 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, childre
   )
 }
 
-export default Timeline
+export default TimelineItem

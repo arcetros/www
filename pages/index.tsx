@@ -1,9 +1,9 @@
 import { GetStaticProps } from 'next'
 import React from 'react'
 
-import MainTimeline from '@/components/timeline/MainTimeline'
-import Container from '@/components/UI/Container'
-import Profile from '@/components/UI/Profile/Profile'
+import Profile from '@/components/profile/profile'
+import MainTimeline from '@/components/timeline/main-timeline'
+import Container from '@/components/ui/container'
 import { getAllProjects } from '@/services'
 import { TProjects } from '@/types'
 

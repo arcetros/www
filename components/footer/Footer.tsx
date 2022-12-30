@@ -3,7 +3,7 @@ import React from 'react'
 import { GITHUB_URL, LINKEDIN_URL } from '@/constants'
 
 import { SpotifyTile } from '../spotify-tile'
-import Container from '../UI/Container'
+import Container from '../ui/container'
 
 const Footer = () => {
   return (
