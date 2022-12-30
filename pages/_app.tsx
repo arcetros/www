@@ -9,7 +9,7 @@ import type { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo'
 import React from 'react'
 
-import { Footer } from '@/src/components/Common/Footer'
+import { Footer } from '@/components/footer'
 
 import defaultSeo from '../next-seo.config.js'
 

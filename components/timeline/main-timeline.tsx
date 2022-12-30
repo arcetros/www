@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Timeline from '@/src/components/UI/Timeline'
-import { TIMELINE_ITEMS } from '@/src/constants'
-import { getNewTimeline } from '@/src/Helper'
+import { TIMELINE_ITEMS } from '@/constants'
+import { getNewTimeline } from '@/helpers'
+import { TimelineContent } from '@/types/timeline'
 
-import { TimelineContent } from '../../UI/Timeline/types'
-import TimelineSeperator from './TimelineSeperator'
-import TimelineWrapper from './TimelineWrapper'
+import TimelineItem from './timeline-item'
+import TimelineSeperator from './timeline-seperator'
+import TimelineWrapper from './timeline-wrapper'
 
 type Props = {
   projects: TimelineContent[]
@@ -31,7 +31,7 @@ const MainTimeline: React.FunctionComponent<Props> = ({ projects }) => {
                   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                   .map((t, id) => {
                     return (
-                      <Timeline
+                      <TimelineItem
                         badgeTitle={t.badgeTitle}
                         content={t}
                         variant={t?.meta?.variant || 'default'}
@@ -41,7 +41,7 @@ const MainTimeline: React.FunctionComponent<Props> = ({ projects }) => {
                         {t?.embed?.html && (
                           <div dangerouslySetInnerHTML={{ __html: t?.embed?.html }} />
                         )}
-                      </Timeline>
+                      </TimelineItem>
                     )
                   })}
               </TimelineSeperator>

@@ -1,4 +1,4 @@
-import { NewTimeline, TimelineContent } from '../components/UI/Timeline/types'
+import { NewTimeline, TimelineContent } from '@/types/timeline'
 
 interface GroupedTimelines {
   [key: string | number]: TimelineContent[]

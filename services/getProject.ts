@@ -57,7 +57,7 @@ interface Project {
 // }
 
 export const getAllProjects = async () => {
-  const filePath = path.join(process.cwd(), './src/data/')
+  const filePath = path.join(process.cwd(), './data/')
   const getJsonData = await fsPromises.readFile(filePath + 'repositories.json', 'utf-8')
 
   const result = JSON.parse(getJsonData) as TProjects[]

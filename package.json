@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
-    "fetch-repos": "ts-node ./src/etc/fetch-repositories.ts"
+    "fetch-repos": "ts-node ./etc/fetch-repositories.ts"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.14",

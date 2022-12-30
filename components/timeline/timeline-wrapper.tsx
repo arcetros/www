@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import React from 'react'
 
-import s from './Timeline.module.css'
+import s from './main-timeline.module.css'
 
 const TimelineWrapper = ({ children }: { children: React.ReactNode }) => {
   return (

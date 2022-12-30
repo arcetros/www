@@ -3,10 +3,10 @@ import React from 'react'
 import { WifiOff } from 'react-feather'
 import useSWR from 'swr'
 
-import { fetcher } from '@/src/Helper/fetcher'
-import { SpotifyTrack } from '@/src/types'
+import { fetcher } from '@/helpers/fetcher'
+import { SpotifyTrack } from '@/types'
 
-import LoadingDots from '../../UI/LoadingDots/LoadingDots'
+import LoadingDots from '../ui/loading-dots/loading-dots'
 import { SpotifyIcon } from './Icon'
 import s from './SpotifyTile.module.css'
 import { normalizeTitle, normalizeTrackArtists } from './utils'
@@ -37,7 +37,12 @@ const SpotifyTile: React.FunctionComponent = () => {
 
   return (
     <div className='mb-4 flex items-center justify-between'>
-      <a href={external_urls.spotify} target='_blank' rel='noreferrer' className='group'>
+      <a
+        className='group before:!content-none'
+        href={external_urls.spotify}
+        target='_blank'
+        rel='noreferrer'
+      >
         <div className='flex items-center gap-x-2 text-sm capitalize text-neutral-400'>
           {data?.status === 'online' ? (
             <>

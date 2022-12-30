@@ -1,6 +1,6 @@
 import React from 'react'
 
-import s from './Timeline.module.css'
+import s from './main-timeline.module.css'
 
 const TimelineSeperator = ({
   children,

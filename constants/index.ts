@@ -1,4 +1,4 @@
-import { TimelineContent } from '../components/UI/Timeline/types'
+import { TimelineContent } from '@/types/timeline'
 
 export const GITHUB_URL = 'https://github.com/arcetros'
 export const GITHUB_API_URL = 'https://api.github.com/users/arcetros/repos'

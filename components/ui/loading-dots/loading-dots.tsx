@@ -1,6 +1,6 @@
 import React from 'react'
 
-import s from './LoadingDots.module.css'
+import s from './loading-dots.module.css'
 
 const LoadingDots: React.FC = () => {
   return (

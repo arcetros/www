@@ -1,9 +1,15 @@
 import React from 'react'
 
-import { GITHUB_URL, LINKEDIN_URL } from '@/src/constants'
+import { CAL_URL, GITHUB_URL, LINKEDIN_URL } from '@/constants'
 
-import Container from '../../UI/Container'
-import { SpotifyTile } from '../SpotifyTile'
+import { SpotifyTile } from '../spotify-tile'
+import Container from '../ui/container'
+
+const LINKS = [
+  { label: 'Github', href: GITHUB_URL },
+  { label: 'LinkedIn', href: LINKEDIN_URL },
+  { label: 'Calendar', href: CAL_URL }
+]
 
 const Footer = () => {
   return (
@@ -12,28 +18,20 @@ const Footer = () => {
       className='flex flex-col gap-4 border-t border-neutral-900 px-4 py-8 lg:px-0'
     >
       <SpotifyTile />
-      <ul className='flex flex-col space-y-3 text-sm text-neutral-400'>
-        <li>
-          <a
-            href={GITHUB_URL}
-            target='_blank'
-            className='cursor-pointer tracking-wide transition-all hover:text-neutral-600 dark:hover:text-neutral-500'
-            rel='noreferrer'
-          >
-            Github
-          </a>
-        </li>
-        <li>
-          <a
-            href={LINKEDIN_URL}
-            target='_blank'
-            className='cursor-pointer tracking-wide transition-all hover:text-neutral-600 dark:hover:text-neutral-500'
-            rel='noreferrer'
-          >
-            LinkedIn
-          </a>
-        </li>
-      </ul>
+      {/* <ul className='flex flex-col space-y-2 text-sm text-neutral-400'>
+        {LINKS.map((link) => (
+          <li key={link.label}>
+            <a
+              href={link.href}
+              target='_blank'
+              className='cursor-pointer tracking-wide transition-all before:!content-none hover:text-neutral-600 dark:hover:text-neutral-500'
+              rel='noreferrer'
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul> */}
       <div className='mt-8 flex flex-col justify-between text-xs lg:flex-row'>
         <p className='text-neutral-400'>
           Made using Next.js by{' '}

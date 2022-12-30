@@ -2,17 +2,17 @@ import Image from 'next/image'
 import React from 'react'
 import { BsCalendarFill, BsGithub, BsLinkedin } from 'react-icons/bs'
 
-import { BADGES } from '@/src/_content/about-me-badges'
-import { CAL_URL, GITHUB_URL, LINKEDIN_URL } from '@/src/constants'
+import { BADGES } from '@/_content/about-me-badges'
+import { CAL_URL, GITHUB_URL, LINKEDIN_URL } from '@/constants'
 
-import s from './Profile.module.css'
+import s from './profile.module.css'
 
 const Profile: React.FunctionComponent = () => {
   const [isExpanded, setIsExpanded] = React.useState<boolean>(false)
   const aboutRef = React.useRef<HTMLDivElement | null>(null)
 
   const handleExpandAbout = () => {
-    aboutRef.current?.classList.remove('Profile_about_expand__KQjSV')
+    aboutRef.current?.classList.remove('profile_about_expand___DF1Q')
     setIsExpanded(true)
   }
 
