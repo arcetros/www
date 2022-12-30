@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
-    "fetch-repos": "ts-node ./src/etc/fetch-repositories.ts"
+    "fetch-repos": "ts-node ./etc/fetch-repositories.ts"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.14",
@@ -24,7 +24,7 @@
     "gray-matter": "^4.0.3",
     "htmr": "^1.0.2",
     "next": "12.2.4",
-    "next-mdx-remote": "^4.1.0",
+    "next-mdx-remote": "^4.2.0",
     "next-seo": "^5.5.0",
     "next-sitemap": "^3.1.16",
     "postcss-nesting": "^10.1.10",
@@ -43,18 +43,18 @@
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
-    "@typescript-eslint/parser": "^5.32.0",
+    "@typescript-eslint/parser": "^5.47.1",
     "autoprefixer": "^10.4.8",
     "eslint": "^8.21.0",
-    "eslint-config-next": "12.2.4",
+    "eslint-config-next": "13.1.1",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^8.0.1",
     "postcss": "^8.4.20",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "tailwindcss": "^3.1.7",
+    "tailwindcss": "^3.2.4",
     "typescript": "4.7.4"
   }
 }

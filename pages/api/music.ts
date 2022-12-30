@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { fetchLastPlayedTrack, getAccessToken } from '@/src/services/spotify'
+import { fetchLastPlayedTrack, getAccessToken } from '@/services/spotify'
 
 export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   try {

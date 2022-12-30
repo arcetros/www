@@ -2,16 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  tab-size: 4;
+:root {
   color-scheme: dark;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #111 500px),
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #111 300px),
     fixed 0 0 / 20px 20px radial-gradient(#313131 1px, transparent 0),
     fixed 10px 10px / 20px 20px radial-gradient(#313131 1px, #111 0);
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+}
+
+a::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: none repeat scroll 0 0 transparent;
+  background: linear-gradient(to left, #111111, #fff 100%);
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+
+a:hover::before {
+  transform: scaleX(1);
 }
