@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { GITHUB_URL, LINKEDIN_URL } from '@/src/constants'
+import { GITHUB_URL, LINKEDIN_URL } from '@/constants'
 
-import Container from '../../UI/Container'
-import { SpotifyTile } from '../SpotifyTile'
+import { SpotifyTile } from '../spotify-tile'
+import Container from '../UI/Container'
 
 const Footer = () => {
   return (

@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next'
 import React from 'react'
 
-import MainTimeline from '@/src/components/Common/Timeline/MainTimeline'
-import Container from '@/src/components/UI/Container/Container'
-import Profile from '@/src/components/UI/Profile/Profile'
-import { getAllProjects } from '@/src/services'
-import { TProjects } from '@/src/types'
+import MainTimeline from '@/components/timeline/MainTimeline'
+import Container from '@/components/UI/Container'
+import Profile from '@/components/UI/Profile/Profile'
+import { getAllProjects } from '@/services'
+import { TProjects } from '@/types'
 
 export const getStaticProps: GetStaticProps = async () => {
   const getProjects = await getAllProjects()

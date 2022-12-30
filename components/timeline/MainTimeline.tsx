@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Timeline from '@/src/components/UI/Timeline'
-import { TIMELINE_ITEMS } from '@/src/constants'
-import { getNewTimeline } from '@/src/Helper'
+import Timeline from '@/components/UI/Timeline'
+import { TIMELINE_ITEMS } from '@/constants'
+import { getNewTimeline } from '@/helpers'
 
-import { TimelineContent } from '../../UI/Timeline/types'
+import { TimelineContent } from '../UI/Timeline/types'
 import TimelineSeperator from './TimelineSeperator'
 import TimelineWrapper from './TimelineWrapper'
 

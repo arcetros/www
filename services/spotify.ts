@@ -1,4 +1,4 @@
-import { fetcher } from '../Helper/fetcher'
+import { fetcher } from '../helpers/fetcher'
 import type { SpotifyTrack } from '../types'
 
 export const getAccessToken = async (refreshToken: string) => {

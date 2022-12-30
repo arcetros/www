@@ -2,8 +2,8 @@ import Image from 'next/image'
 import React from 'react'
 import { BsCalendarFill, BsGithub, BsLinkedin } from 'react-icons/bs'
 
-import { BADGES } from '@/src/_content/about-me-badges'
-import { CAL_URL, GITHUB_URL, LINKEDIN_URL } from '@/src/constants'
+import { BADGES } from '@/_content/about-me-badges'
+import { CAL_URL, GITHUB_URL, LINKEDIN_URL } from '@/constants'
 
 import s from './Profile.module.css'
 
