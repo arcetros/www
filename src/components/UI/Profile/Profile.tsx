@@ -92,7 +92,7 @@ const Profile: React.FunctionComponent = () => {
         <div className='ml-[-0.5rem] flex items-center space-x-4'>
           <a
             target='_blank'
-            className='group rounded-full p-2 transition-all hover:bg-neutral-800'
+            className='group rounded-full p-2 transition-all before:!content-none hover:bg-neutral-800'
             href={GITHUB_URL}
             rel='noreferrer'
           >
@@ -100,7 +100,7 @@ const Profile: React.FunctionComponent = () => {
           </a>
           <a
             target='_blank'
-            className='group rounded-full p-2 transition-all hover:bg-neutral-800'
+            className='group rounded-full p-2 transition-all before:!content-none hover:bg-neutral-800'
             href={LINKEDIN_URL}
             rel='noreferrer'
           >
@@ -108,7 +108,7 @@ const Profile: React.FunctionComponent = () => {
           </a>
           <a
             target='_blank'
-            className='group rounded-full p-2 transition-all hover:bg-neutral-800'
+            className='group rounded-full p-2 transition-all before:!content-none hover:bg-neutral-800'
             href={CAL_URL}
             rel='noreferrer'
           >

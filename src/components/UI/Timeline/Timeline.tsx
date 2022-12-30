@@ -49,9 +49,7 @@ const Timeline = ({ lastIndex, content, variant = 'default', badgeTitle, childre
         <strong>{badgeTitle ? badgeTitle : TitleVariants[variant]}</strong>
       </div>
       <div className={s.badge_info}>
-        <time>
-          <time>{newDate}</time>
-        </time>
+        <time>{newDate}</time>
         {content.meta?.language && (
           <>
             {LanguageVariants[content.meta.language]}
