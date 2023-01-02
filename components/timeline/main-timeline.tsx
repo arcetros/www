@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { TIMELINE_ITEMS } from '@/constants'
-import { getNewTimeline } from '@/helpers'
+import { getNewTimeline } from '@/libs/helpers'
 import { TimelineContent } from '@/types/timeline'
 
 import TimelineItem from './timeline-item'

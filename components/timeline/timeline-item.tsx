@@ -3,6 +3,7 @@ import React from 'react'
 import { Clock, Star } from 'react-feather'
 
 import { LanguageVariants, TitleVariants } from '@/_content/timeline-variants'
+import { trackEvent } from '@/libs/helpers/umami-tracker'
 import { TimelineContent } from '@/types/timeline'
 
 import s from './timeline-item.module.css'
@@ -42,6 +43,10 @@ const TimelineItem = ({
     setNewDate(`${startDate} ${endDate}`)
   }, [content.endDate, content.date])
 
+  const handleTrackClickedLink = () => {
+    trackEvent({ eventName: 'Clicked timeline links', eventData: { type: 'resume' }, url: '/' })
+  }
+
   return (
     <li className={s.root}>
       <div>
@@ -72,7 +77,12 @@ const TimelineItem = ({
       </div>
       <h2 className={clsx(content?.meta?.link && 'cursor-pointer capitalize')}>
         {content.meta?.link ? (
-          <a target='_blank' href={content.meta.link} rel='noreferrer'>
+          <a
+            onClick={handleTrackClickedLink}
+            target='_blank'
+            href={content.meta.link}
+            rel='noreferrer'
+          >
             {content.title}
           </a>
         ) : (

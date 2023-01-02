@@ -4,6 +4,7 @@ import { BsCalendarFill, BsGithub, BsLinkedin } from 'react-icons/bs'
 
 import { BADGES } from '@/_content/about-me-badges'
 import { CAL_URL, GITHUB_URL, LINKEDIN_URL } from '@/constants'
+import { trackEvent } from '@/libs/helpers/umami-tracker'
 
 import s from './profile.module.css'
 
@@ -12,9 +13,32 @@ const Profile: React.FunctionComponent = () => {
   const aboutRef = React.useRef<HTMLDivElement | null>(null)
 
   const handleExpandAbout = () => {
+    trackEvent({ eventName: 'Expand bio content', eventData: { type: 'other' }, url: '/' })
     aboutRef.current?.classList.remove('profile_about_expand___DF1Q')
     setIsExpanded(true)
   }
+
+  const handleTrackResume = () => {
+    trackEvent({ eventName: 'Open resume', eventData: { type: 'resume' }, url: '/' })
+  }
+
+  const handleTrackSocials = (social: string) => {
+    trackEvent({ eventName: `Clicked ${social}`, eventData: { type: 'link' }, url: '/' })
+  }
+
+  const SOCIALS = [
+    { label: 'Github', href: GITHUB_URL, icon: <BsGithub className='h-5 w-5 text-neutral-200' /> },
+    {
+      label: 'LinkedIn',
+      href: LINKEDIN_URL,
+      icon: <BsLinkedin className='h-5 w-5 text-neutral-200' />
+    },
+    {
+      label: 'Calendar',
+      href: CAL_URL,
+      icon: <BsCalendarFill className='h-5 w-5 text-neutral-200' />
+    }
+  ]
 
   return (
     <div className={s.root}>
@@ -38,7 +62,7 @@ const Profile: React.FunctionComponent = () => {
         <ul className='flex flex-wrap items-center'>
           <li className='text-neutral-300'>Front-End Developer, self employed</li>
           <li className='cursor-pointer font-bold text-neutral-300'>
-            <a href='/arcetros-resume.pdf' target='_blank'>
+            <a onClick={handleTrackResume} href='/arcetros-resume.pdf' target='_blank'>
               View resume
             </a>
           </li>
@@ -90,30 +114,18 @@ const Profile: React.FunctionComponent = () => {
       </section>
       <section className='pt-4'>
         <div className='ml-[-0.5rem] flex items-center space-x-4'>
-          <a
-            target='_blank'
-            className='group rounded-full p-2 transition-all before:!content-none hover:bg-neutral-800'
-            href={GITHUB_URL}
-            rel='noreferrer'
-          >
-            <BsGithub className='h-5 w-5 text-neutral-200' />
-          </a>
-          <a
-            target='_blank'
-            className='group rounded-full p-2 transition-all before:!content-none hover:bg-neutral-800'
-            href={LINKEDIN_URL}
-            rel='noreferrer'
-          >
-            <BsLinkedin className='h-5 w-5 text-neutral-200' />
-          </a>
-          <a
-            target='_blank'
-            className='group rounded-full p-2 transition-all before:!content-none hover:bg-neutral-800'
-            href={CAL_URL}
-            rel='noreferrer'
-          >
-            <BsCalendarFill className='h-5 w-5 text-neutral-200' />
-          </a>
+          {SOCIALS.map((social, idx) => (
+            <a
+              key={idx}
+              onClick={() => handleTrackSocials(social.label)}
+              target='_blank'
+              className='group rounded-full p-2 transition-all before:!content-none hover:bg-neutral-800'
+              href={social.href}
+              rel='noreferrer'
+            >
+              {social.icon}
+            </a>
+          ))}
         </div>
       </section>
     </div>

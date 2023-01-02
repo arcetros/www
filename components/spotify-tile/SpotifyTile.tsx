@@ -3,7 +3,7 @@ import React from 'react'
 import { WifiOff } from 'react-feather'
 import useSWR from 'swr'
 
-import { fetcher } from '@/helpers/fetcher'
+import { fetcher } from '@/libs/helpers/fetcher'
 import { SpotifyTrack } from '@/types'
 
 import LoadingDots from '../ui/loading-dots/loading-dots'
