@@ -6,6 +6,7 @@ import '@fontsource/inter/600.css'
 import '@fontsource/inter/700.css'
 
 import type { AppProps } from 'next/app'
+import Script from 'next/script'
 import { DefaultSeo } from 'next-seo'
 import React from 'react'
 
@@ -16,6 +17,13 @@ import defaultSeo from '../next-seo.config.js'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      {process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL && process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+        <Script
+          src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+          strategy='lazyOnload'
+        />
+      )}
       <DefaultSeo {...defaultSeo} />
       <Component {...pageProps} />
       <Footer />
