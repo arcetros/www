@@ -13,17 +13,17 @@ const Profile: React.FunctionComponent = () => {
   const aboutRef = React.useRef<HTMLDivElement | null>(null)
 
   const handleExpandAbout = () => {
-    trackEvent({ eventName: 'Expand bio content', eventData: { type: 'other' }, url: '/' })
+    trackEvent({ eventName: 'Read more bio', eventData: { type: 'other' }, url: '/' })
     aboutRef.current?.classList.remove('profile_about_expand___DF1Q')
     setIsExpanded(true)
   }
 
   const handleTrackResume = () => {
-    trackEvent({ eventName: 'Open resume', eventData: { type: 'resume' }, url: '/' })
+    trackEvent({ eventName: 'Resume link', eventData: { type: 'resume' }, url: '/' })
   }
 
   const handleTrackSocials = (social: string) => {
-    trackEvent({ eventName: `Clicked ${social}`, eventData: { type: 'link' }, url: '/' })
+    trackEvent({ eventName: `${social} icon`, eventData: { type: 'link' }, url: '/' })
   }
 
   const SOCIALS = [

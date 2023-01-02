@@ -44,7 +44,7 @@ const TimelineItem = ({
   }, [content.endDate, content.date])
 
   const handleTrackClickedLink = () => {
-    trackEvent({ eventName: 'Clicked timeline links', eventData: { type: 'resume' }, url: '/' })
+    trackEvent({ eventName: 'Timeline link', eventData: { type: 'resume' }, url: '/' })
   }
 
   return (
