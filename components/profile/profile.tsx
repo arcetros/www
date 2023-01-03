@@ -61,11 +61,14 @@ const Profile: React.FunctionComponent = () => {
       <div className='flex pt-4 text-sm'>
         <ul className='flex flex-wrap items-center'>
           <li className='text-neutral-300'>Front-End Developer, self employed</li>
-          <li className='cursor-pointer font-bold text-neutral-300'>
-            <a onClick={handleTrackResume} href='/arcetros-resume.pdf' target='_blank'>
-              View resume
-            </a>
-          </li>
+          <a
+            className='font-bold text-neutral-300'
+            onClick={handleTrackResume}
+            href='/arcetros-resume.pdf'
+            target='_blank'
+          >
+            View resume
+          </a>
         </ul>
       </div>
       <dl className='ml-[-0.25rem] flex flex-wrap pt-4'>

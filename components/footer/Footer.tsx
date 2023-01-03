@@ -44,7 +44,7 @@ const Footer = () => {
           <a
             target='_blank'
             href={`${GITHUB_URL}/arcetros`}
-            className='cursor-pointer underline'
+            className='cursor-pointer underline before:!content-none'
             rel='noreferrer'
           >
             MIT License
