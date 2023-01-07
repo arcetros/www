@@ -9,7 +9,7 @@
     @apply mb-1 flex items-center text-xs leading-normal text-gray-300;
 
     & .language {
-      @apply text-[0.8rem];
+      @apply text-xs;
     }
   }
 
