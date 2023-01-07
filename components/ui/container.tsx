@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 interface ContainerProps {
   className?: string
   children?: any
-  el?: HTMLElement | any
+  el?: React.ComponentType | keyof JSX.IntrinsicElements
   clean?: boolean
 }
 
@@ -15,10 +15,10 @@ const Container: FC<ContainerProps> = ({
   clean = false // Full Width Screen
 }) => {
   const rootClassName = cn(className, {
-    'mx-auto max-w-xl': !clean
+    'mx-auto max-w-[602px]': !clean
   })
 
-  let Component: React.ComponentType<React.HTMLAttributes<HTMLDivElement>> = el as any
+  const Component = el
 
   return <Component className={rootClassName}>{children}</Component>
 }

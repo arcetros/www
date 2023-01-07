@@ -12,20 +12,20 @@ export const BADGES = [
     icon: <FaCode className={`${ROOT_CLASSNAME} text-blue-600`} />
   },
   {
-    title: 'TypeScript',
-    icon: <SiTypescript className={`${ROOT_CLASSNAME} text-blue-500`} />
-  },
-  {
     title: 'React',
     icon: <DiReact className={`${ROOT_CLASSNAME} text-teal-500`} />
+  },
+  {
+    title: 'TypeScript',
+    icon: <SiTypescript className={`${ROOT_CLASSNAME} text-blue-500`} />
   },
   {
     title: 'Open Source',
     icon: <FaLockOpen className={`${ROOT_CLASSNAME} text-blue-500`} />
   },
-  { title: 'Self Taught', icon: <FaBook className={`${ROOT_CLASSNAME} text-green-500`} /> },
   {
     title: 'Motorsports Enthusiast',
     icon: <GiCheckeredFlag className={`${ROOT_CLASSNAME}`} />
-  }
+  },
+  { title: 'Self Taught', icon: <FaBook className={`${ROOT_CLASSNAME} text-green-500`} /> }
 ]
