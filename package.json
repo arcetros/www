@@ -27,7 +27,7 @@
     "next-mdx-remote": "^4.2.0",
     "next-seo": "^5.5.0",
     "next-sitemap": "^3.1.16",
-    "postcss-nesting": "^10.1.10",
+    "postcss-nesting": "^10.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-feather": "^2.0.10",
