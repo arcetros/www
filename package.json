@@ -13,7 +13,7 @@
     "fetch-repos": "ts-node ./etc/fetch-repositories.ts"
   },
   "dependencies": {
-    "@fontsource/mulish": "^4.5.14",
+    "@fontsource/mulish": "^5.0.1",
     "@heroicons/react": "^1.0.6",
     "@mdx-js/react": "^2.3.0",
     "clsx": "^1.2.1",
